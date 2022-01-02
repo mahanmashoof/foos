@@ -14,7 +14,7 @@ const getData = async () => {
   }
 };
 
-const players = ["p1", "p2", "p3", "p4", "p5", "p6"];
+const players = ["p1", "p2", "p3", "p4", "p5"];
 
 const allPossibleTeams = () => {
   let team: string[] = [];
@@ -36,11 +36,28 @@ const allPossibleTeams = () => {
   console.log(possibleTeamsArr);
 };
 
+const randomizePlayers = () => {
+  const game: string[] = [];
+  let playersArr = players;
+  const pos1Team1 = playersArr[Math.floor(Math.random() * playersArr.length)];
+  game.push(pos1Team1);
+  playersArr = playersArr.filter((player) => player !== pos1Team1);
+  const pos2Team1 = playersArr[Math.floor(Math.random() * playersArr.length)];
+  game.push(pos2Team1);
+  playersArr = playersArr.filter((player) => player !== pos2Team1);
+  const pos1Team2 = playersArr[Math.floor(Math.random() * playersArr.length)];
+  game.push(pos1Team2);
+  playersArr = playersArr.filter((player) => player !== pos1Team2);
+  const pos2Team2 = playersArr[Math.floor(Math.random() * playersArr.length)];
+  game.push(pos2Team2);
+  console.log(game);
+};
+
 function App() {
   return (
     <div className="App">
       App component
-      <button onClick={allPossibleTeams}>create all teams</button>
+      <button onClick={randomizePlayers}>create all teams</button>
     </div>
   );
 }
