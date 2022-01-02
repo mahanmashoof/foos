@@ -39,17 +39,17 @@ const allPossibleTeams = () => {
 const randomizePlayers = () => {
   const game: string[] = [];
   let playersArr = players;
-  const pos1Team1 = playersArr[Math.floor(Math.random() * playersArr.length)];
-  game.push(pos1Team1);
-  playersArr = playersArr.filter((player) => player !== pos1Team1);
-  const pos2Team1 = playersArr[Math.floor(Math.random() * playersArr.length)];
-  game.push(pos2Team1);
-  playersArr = playersArr.filter((player) => player !== pos2Team1);
-  const pos1Team2 = playersArr[Math.floor(Math.random() * playersArr.length)];
-  game.push(pos1Team2);
-  playersArr = playersArr.filter((player) => player !== pos1Team2);
-  const pos2Team2 = playersArr[Math.floor(Math.random() * playersArr.length)];
-  game.push(pos2Team2);
+  for (let i = 0; i < 1000000; i++) {
+    const pos = playersArr[Math.floor(Math.random() * playersArr.length)];
+    game.push(pos);
+    playersArr = playersArr.filter((player) => player !== pos);
+    if (game.length === 2) {
+      game.push("-");
+    }
+    if (game.length === 5) {
+      break;
+    }
+  }
   console.log(game);
 };
 
