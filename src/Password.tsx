@@ -3,10 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 const Password = () => {
   let navigate = useNavigate();
+  const adminRoute = process.env.REACT_APP_adminRoute + "";
   const [writtenPassword, setWrittenPassword] = useState("");
   const checkPassword = () => {
     writtenPassword === process.env.REACT_APP_adminPassword
-      ? navigate("/admin")
+      ? navigate(adminRoute)
       : alert("Wrong password, try again");
   };
   return (
@@ -15,6 +16,8 @@ const Password = () => {
       <input
         value={writtenPassword}
         onChange={(e) => setWrittenPassword(e.target.value)}
+        autoComplete="off"
+        type="password"
       />
       <button onClick={checkPassword}>OK</button>
     </div>

@@ -8,8 +8,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/password" element={<Password />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route path="password" element={<Password />} />
+        <Route path={process.env.REACT_APP_adminRoute} element={<Admin />} />
       </Routes>
     </Router>
   );
