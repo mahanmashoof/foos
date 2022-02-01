@@ -1,0 +1,32 @@
+const players = ["p1", "p2", "p3", "p4", "p5", "p6", "p7"];
+
+function App() {
+  const randomizePlayers = () => {
+    let game: string[] = [];
+    let uniquePlayersArr = players;
+    for (let i = 0; i < 1000000; i++) {
+      const pos =
+        uniquePlayersArr[Math.floor(Math.random() * uniquePlayersArr.length)];
+      game.push(pos);
+      uniquePlayersArr = uniquePlayersArr.filter((player) => player !== pos);
+      if (game.length === 4) {
+        // 2 vs 2 players
+        break;
+      }
+    }
+    return game;
+  };
+
+  const createGames = () => {
+    let games: [string[]] = [[]];
+    games.shift();
+    for (let i = 0; i < players.length * 2; i++) {
+      const team = randomizePlayers();
+      //TODO: if that excludes an array instead of a string
+      if (!team.includes("p1")) {
+        games.push(team);
+      }
+    }
+    console.log(games);
+  };
+}
