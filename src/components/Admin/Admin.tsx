@@ -18,7 +18,10 @@ const Admin = () => {
         rage: rage,
       },
     })
-      .then(() => alert(`${name} added`))
+      .then(() => {
+        alert(`${name} added`);
+        window.location.reload();
+      })
       .catch((err) => console.log(err));
   };
 
@@ -52,7 +55,7 @@ const Admin = () => {
           </option>
         ))}
       </select>
-      <button onClick={addPlayer}>add static player</button>
+      <button onClick={addPlayer}>add player</button>
     </div>
   );
 };
