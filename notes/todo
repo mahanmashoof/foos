@@ -4,3 +4,14 @@ pass service to repo
 create hooks for data fetch
 use hooks in app
 ...create necessary components (tbd)
+
+REACT_APP_apiKey="AIzaSyAsS_RBsos98oha1i0qeclOHMDl3kl3Z_Q"
+REACT_APP_authDomain="foos-44409.firebaseapp.com"
+REACT_APP_projectId="foos-44409"
+REACT_APP_storageBucket="foos-44409.appspot.com"
+REACT_APP_messagingSenderId="965275426501"
+REACT_APP_appId="1:965275426501:web:0a2a450e6726ad64471aac"
+REACT_APP_measurementId="G-2LQPT22JZG"
+
+REACT_APP_adminPassword="qwerty"
+REACT_APP_adminRoute="/05d69e96-8382-11ec-a8a3-0242ac120002"
