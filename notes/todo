@@ -1,4 +1,3 @@
-write players to db
 write countries to db
 read db api in service file
 pass service to repo
