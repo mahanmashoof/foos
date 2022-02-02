@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./Home";
-import Admin from "./Admin";
-import Password from "./Password";
+import Home from "./components/Home";
+import Admin from "./components/Admin/Admin";
+import Password from "./components/Password";
 
 function App() {
   return (
