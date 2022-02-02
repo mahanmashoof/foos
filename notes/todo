@@ -1,6 +1,0 @@
-write countries to db
-read db api in service file
-pass service to repo
-create hooks for data fetch
-use hooks in app
-...create necessary components (tbd)
