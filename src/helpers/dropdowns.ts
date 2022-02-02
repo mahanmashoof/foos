@@ -1,1 +1,4 @@
-export const playerAttributesDropdown = [1, 2, 3];
+export const playerAttributesDropdown = Array.from(
+  { length: 10 },
+  (_, i) => i + 1
+);
