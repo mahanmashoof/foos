@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
+import { Main } from "./Global/Global.styles";
 
 const Home = () => {
   return (
-    <div>
+    <Main>
       <Link to="/password">
         <button>Admin page</button>
       </Link>
-    </div>
+    </Main>
   );
 };
 
