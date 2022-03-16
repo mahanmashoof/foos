@@ -6,9 +6,11 @@ const Home = () => {
   return (
     <s.Main>
       <Top />
-      <Link to="/password">
-        <button>Admin page</button>
-      </Link>
+      <s.Content>
+        <Link to="/password">
+          <button>Admin page</button>
+        </Link>
+      </s.Content>
     </s.Main>
   );
 };

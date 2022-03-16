@@ -5,3 +5,7 @@ import background from "./../img/bg-sky.jpeg";
 export const Main = styled(s.Main)`
   background-image: url(${background});
 `;
+
+export const Content = styled.div`
+  padding: 40px 40px 80px;
+`
