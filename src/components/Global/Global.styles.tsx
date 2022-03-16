@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const FontHeading = styled.div`
-  @import url(https://db.onlinewebfonts.com/c/6068d986a7478d48d33799e3ac745ec2?family=Queen+of+Camelot);
-  font-family: "Queen of Camelot";
+  @import url(https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap);
+  font-family: "Press Start 2P";
   color: blue;
 `
 
