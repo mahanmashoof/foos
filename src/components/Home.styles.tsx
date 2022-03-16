@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { g_Main } from "./Global/Global.styles";
+import * as s from "./Global/Global.styles";
 import background from "./../img/bg-sky.jpeg";
 
-export const Main = styled(g_Main)`
+export const Main = styled(s.Main)`
   background-image: url(${background});
   width: 1440px;
 `;
@@ -11,6 +11,7 @@ export const LogoRow = styled.div`
   display: flex;
   justify-content: center;
   padding: 2rem 0 0;
+  align-items: center;
 `
 
 export const LogoMob = styled.img`
@@ -20,4 +21,9 @@ export const LogoMob = styled.img`
 
 export const LogoFlamingo = styled.img`
   width: 103px;
+`
+export const LogoText = styled(s.FontHeading)`
+font-size: 2rem;
+line-height: 36px;
+font-style: italic;
 `

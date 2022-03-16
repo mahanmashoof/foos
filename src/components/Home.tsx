@@ -8,7 +8,7 @@ const Home = () => {
     <s.Main>
       <s.LogoRow>
         <s.LogoMob alt='' src={logoLeft} />
-        <div>powered by</div>
+        <s.LogoText>powered by</s.LogoText>
         <s.LogoFlamingo alt='' src={flamingo} />
       </s.LogoRow>
       <Link to="/password">
