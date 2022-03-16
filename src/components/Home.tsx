@@ -1,16 +1,11 @@
 import { Link } from "react-router-dom";
-import logoLeft from './../img/logo-left.png'
-import flamingo from './../img/flamingo.png'
 import * as s from "./Home.styles";
+import Top from "./Top";
 
 const Home = () => {
   return (
     <s.Main>
-      <s.LogoRow>
-        <s.LogoMob alt='' src={logoLeft} />
-        <s.LogoText>powered by</s.LogoText>
-        <s.LogoFlamingo alt='' src={flamingo} />
-      </s.LogoRow>
+      <Top />
       <Link to="/password">
         <button>Admin page</button>
       </Link>
