@@ -2,12 +2,13 @@ import styled from "styled-components";
 import background from "./../img/starBg.png";
 
 
-export const Main = styled.div`
+export const Main = styled.button`
   background-image: url(${background});
   display: flex;
   justify-content: center;
   padding: 2rem 0;
   background-size: cover;
+  width: 100%;
 `
 
 export const LogoRow = styled.div`
@@ -15,9 +16,7 @@ export const LogoRow = styled.div`
   justify-content: center;
   padding: 10px 20px;
   align-items: center;
-  background: #ffffff;
-  height: fit-content;
-  width: fit-content;
+  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.8) 100%);
 `
 
 export const LogoMob = styled.img`
