@@ -1,16 +1,15 @@
 import styled from "styled-components";
 import background from "./../img/starBg.png";
+import * as s from './Global/Global.styles'
 
+export const Frame = styled(s.Frame)``;
 
-export const Main = styled.div`
+export const Main = styled(s.FrameInner)`
   background-image: url(${background});
   display: flex;
   justify-content: center;
   padding: 2rem 0;
   background-size: cover;
-  width: 100%;
-  box-sizing: border-box;
-  border: 12px ridge #C4C4C4;
 `
 
 export const LogoRow = styled.div`

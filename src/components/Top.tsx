@@ -4,13 +4,15 @@ import * as s from "./Top.styles";
 
 const Home = () => {
     return (
-        <s.Main>
-            <s.LogoRow>
-                <s.LogoMob alt='' src={logoLeft} />
-                <s.LogoText>powered by</s.LogoText>
-                <s.LogoFlamingo alt='' src={flamingo} />
-            </s.LogoRow>
-        </s.Main>
+        <s.Frame>
+            <s.Main>
+                <s.LogoRow>
+                    <s.LogoMob alt='' src={logoLeft} />
+                    <s.LogoText>powered by</s.LogoText>
+                    <s.LogoFlamingo alt='' src={flamingo} />
+                </s.LogoRow>
+            </s.Main>
+        </s.Frame>
     );
 };
 
