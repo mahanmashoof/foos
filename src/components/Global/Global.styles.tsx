@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Main = styled.div`
+export const g_Main = styled.div`
   width: 1440px;
   margin: auto;
 `;

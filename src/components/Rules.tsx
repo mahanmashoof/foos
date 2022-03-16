@@ -1,7 +1,7 @@
-import { Main } from "./Global/Global.styles";
+import * as s from "./Rules.styles";
 
 const Rules = () => {
-  return <Main>Rules page</Main>;
+  return <s.Main>Rules page</s.Main>;
 };
 
 export default Rules;
