@@ -22,8 +22,10 @@ export const LogoMob = styled.img`
 export const LogoFlamingo = styled.img`
   width: 103px;
 `
-export const LogoText = styled(s.FontHeading)`
+export const LogoText = styled.div`
 font-size: 2rem;
 line-height: 36px;
 font-style: italic;
+font-family: 'Queen of Camelot', sans-serif;
+color: darkblue;
 `
