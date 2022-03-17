@@ -16,3 +16,20 @@ export const FrameInner = styled.div`
   height: 100%;
   box-shadow: 2px 2px #ffffff;
 `;
+
+interface TypeButtonProps {
+  pressed: boolean
+}
+
+export const Button = styled.button<TypeButtonProps>`
+  background: #c4c4c4;
+  box-shadow: ${(props) => props.pressed ? '-1px -1px 0px 1px #000000, 1px 1px 0px 1px #FFFFFF' : 'inset -1px -1px 0px 2px #000000, inset 1px 1px 0px 2px #FFFFFF'};
+  cursor: pointer;
+  & div {
+    text-decoration: ${(props) => props.pressed ? 'underline' : 'none'};
+    font-weight: ${(props) => props.pressed ? '700' : '400'};
+    font-size: 22px;
+    line-height: 28px;
+    letter-spacing: -0.02em;
+  }
+`;

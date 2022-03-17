@@ -43,7 +43,7 @@ margin-right: 30px;
 export const ButtonRow = styled.div`
 display: flex;
 justify-content: center;
-align-items: baseline;
+align-items: end;
 `;
 
 export const Icons = styled.img`
@@ -53,7 +53,14 @@ margin: 0 1rem;
 `;
 
 export const ButtonBox = styled(s.Frame)`
-height: 74px;
 width: 386px;
 margin: 0 124px;
+display: flex;
+justify-content: space-around;
+align-items: center;
+`;
+
+export const Button = styled(s.Button)`
+height: 50px;
+width: 160px;
 `;

@@ -19,7 +19,14 @@ const Home = () => {
                         <s.Icons alt='' src={mario} />
                         <s.Icons alt='' src={ball} />
                         <s.Icons alt='' src={flower} />
-                        <s.ButtonBox />
+                        <s.ButtonBox>
+                            <s.Button pressed={true}>
+                                <div>Home</div>
+                            </s.Button>
+                            <s.Button pressed={false}>
+                                <div>Rules</div>
+                            </s.Button>
+                        </s.ButtonBox>
                         <s.Icons alt='' src={flower} />
                         <s.Icons alt='' src={ball} />
                         <s.Icons alt='' src={mario} />
