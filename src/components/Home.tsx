@@ -1,8 +1,20 @@
 import { Link } from "react-router-dom";
+import { Routes } from "../types/enums";
 import * as s from "./Home.styles";
 import Top from "./Top";
 
 const Home = () => {
+
+  const start = new Date('2022-04-11 09:00')
+  const now = new Date()
+  const diff = (start.getTime() - now.getTime()) / 1000
+  const daysLeft = Math.floor(diff / 60 / 60 / 24)
+  const hoursLeft = Math.floor(diff % (daysLeft * 3600) / 3600)
+  const minLeft = Math.floor(diff % (daysLeft * 3600) % (hoursLeft * 60) / 60)
+  console.log(daysLeft)
+  console.log(hoursLeft)
+  console.log(minLeft)
+
   return (
     <s.Main>
       <Top />
@@ -24,7 +36,7 @@ const Home = () => {
           </s.FieldFrame>
         </s.Row1>
       </s.Content>
-      <Link to="/password">
+      <Link to={Routes.PASSWORD}>
         <button>Admin page</button>
       </Link>
     </s.Main>
