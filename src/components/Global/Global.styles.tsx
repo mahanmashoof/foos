@@ -13,12 +13,18 @@ export const Frame = styled.div`
   background: #c4c4c4;
   padding: 12px;
   box-shadow: inset -1px -1px 0px 2px #000000, inset 1px 1px 0px 2px #FFFFFF;
+  box-sizing: border-box;
 `;
 
 export const FrameInner = styled.div`
   width: 100%;
   height: 100%;
   box-shadow: 2px 2px #ffffff;
+`;
+
+export const Row = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 interface TypeButtonProps {

@@ -7,12 +7,18 @@ const Home = () => {
     <s.Main>
       <Top />
       <s.Content>
-        This is the Home page
-        <br />
-        <Link to="/password">
-          <button>Admin page</button>
-        </Link>
+        <s.Row1>
+          <s.VideoFrame>
+            <s.Video></s.Video>
+          </s.VideoFrame>
+          <s.FieldFrame>
+            <s.Field></s.Field>
+          </s.FieldFrame>
+        </s.Row1>
       </s.Content>
+      <Link to="/password">
+        <button>Admin page</button>
+      </Link>
     </s.Main>
   );
 };
