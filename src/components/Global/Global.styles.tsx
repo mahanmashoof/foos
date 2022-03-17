@@ -5,6 +5,10 @@ export const Main = styled.div`
   margin: auto;
 `;
 
+export const Content = styled.div`
+  padding: 40px 40px 80px;
+`
+
 export const Frame = styled.div`
   background: #c4c4c4;
   padding: 12px;

@@ -1,11 +1,16 @@
+import { Link, useLocation } from 'react-router-dom'
 import logoLeft from './../img/logo-main.png'
 import flamingo from './../img/flamingo.png'
-import mario from './../img/mario.png'
+import mario from './../img/mario_kart.gif'
 import ball from './../img/ball.png'
 import flower from './../img/flower.png'
 import * as s from "./Top.styles";
+import { Routes } from '../types/enums'
 
-const Home = () => {
+const Top = () => {
+
+    const location = useLocation()
+
     return (
         <s.Frame>
             <s.Main>
@@ -20,12 +25,16 @@ const Home = () => {
                         <s.Icons alt='' src={ball} />
                         <s.Icons alt='' src={flower} />
                         <s.ButtonBox>
-                            <s.Button pressed={true}>
-                                <div>Home</div>
-                            </s.Button>
-                            <s.Button pressed={false}>
-                                <div>Rules</div>
-                            </s.Button>
+                            <Link to={Routes.HOME}>
+                                <s.Button pressed={location.pathname === Routes.HOME}>
+                                    <div>Home</div>
+                                </s.Button>
+                            </Link>
+                            <Link to={Routes.RULES}>
+                                <s.Button pressed={location.pathname === Routes.RULES}>
+                                    <div>Rules</div>
+                                </s.Button>
+                            </Link>
                         </s.ButtonBox>
                         <s.Icons alt='' src={flower} />
                         <s.Icons alt='' src={ball} />
@@ -37,4 +46,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Top;
