@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
-import logoLeft from './../img/logo-main.png'
-import flamingo from './../img/flamingo.png'
+import logoLeft from './../img/MFC-logo.png'
+import flamingo from './../img/flamingosLogo.png'
 import mario from './../img/mario_kart.gif'
 import ball from './../img/ball.png'
 import flower from './../img/flower.png'

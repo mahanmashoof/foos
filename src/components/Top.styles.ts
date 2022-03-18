@@ -28,7 +28,7 @@ export const LogoMob = styled.img`
 `;
 
 export const LogoFlamingo = styled.img`
-  width: 103px;
+  height: 120px;
 `;
 
 export const LogoText = styled.div`
