@@ -7,6 +7,7 @@ import SloganComponent from "./sloganComp/SloganComp";
 import { HOME_CONSTANTS } from "../types/constant/copy";
 import foosPlay from '../img/foosPlay.webp'
 import DateComp from "./datesComp/DateComp";
+import GossipComp from "./gossipComp/GossipComp";
 
 const Home = () => {
 
@@ -67,9 +68,12 @@ const Home = () => {
           <DateComp date={HOME_CONSTANTS.DATE2.date} heading={HOME_CONSTANTS.DATE2.heading} text={HOME_CONSTANTS.DATE2.text}></DateComp>
           <DateComp date={HOME_CONSTANTS.DATE3.date} heading={HOME_CONSTANTS.DATE3.heading} text={HOME_CONSTANTS.DATE3.text}></DateComp>
         </s.SloganRow>
-        <s.SloganRow style={{ marginBottom: '0' }}>
-        </s.SloganRow>
         <s.Heading>GIVE ME THE LATEST GOSSIP!</s.Heading>
+        <s.SloganRow style={{ marginBottom: '0' }}>
+          <GossipComp imgUrl='photos/björn-vad.png' heading={HOME_CONSTANTS.GOSSIP1.heading} text={HOME_CONSTANTS.GOSSIP1.text}></GossipComp>
+          <GossipComp imgUrl='photos/hwa-rang.png' heading={HOME_CONSTANTS.GOSSIP2.heading} text={HOME_CONSTANTS.GOSSIP2.text}></GossipComp>
+          <GossipComp imgUrl='photos/emelie.png' heading={HOME_CONSTANTS.GOSSIP3.heading} text={HOME_CONSTANTS.GOSSIP3.text}></GossipComp>
+        </s.SloganRow>
       </s.Content>
       <Link to={Routes.PASSWORD}>
         <button>Admin page</button>

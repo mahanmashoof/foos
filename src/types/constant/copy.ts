@@ -22,4 +22,16 @@ export const HOME_CONSTANTS = Object.freeze({
         heading: 'FINAL',
         text: 'The 2 strongest opponents go head on head into the final where charisma, uniqueness, nerve and talent decide everything. Be prepared!',
     },
+    GOSSIP1: {
+        heading: 'Wickström in race against time to be fit',
+        text: "It seems Sport Löv doesn't löve back as Björn battles skiing related calf injury.",
+    },
+    GOSSIP2: {
+        heading: "Can reigning champ Hwa Rang prove he's still the dominant foos-force?",
+        text: "Heading into his title defence has Hwa Rang still got what it takes.",
+    },
+    GOSSIP3: {
+        heading: "Emelie's sunshine escape all about less tanning more planning",
+        text: 'The young rookie is taking her first tournament seriously with a Costa Rican training camp.',
+    },
 });

@@ -8,7 +8,6 @@ width: 426px;
 export const FrameInner = styled(s.FrameInner)`
   background: white;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   background-size: cover;
   box-sizing: border-box;
@@ -27,7 +26,7 @@ export const Image = styled.img`
 export const Heading = styled.div`
     font-size: 20px;
     line-height: 36px;
-    color: #ef50a8;
+    color: #0200a4;
     font-style: italic;
     font-weight: 600;
     letter-spacing: -0.02em;
@@ -36,8 +35,8 @@ export const Heading = styled.div`
     `;
 
 export const Text = styled.div`
-    font-size: 22px;
-    line-height: 28px;
+    font-size: 16px;
+    line-height: 22px;
     color: #0200a4;
     font-weight: 400;
     letter-spacing: -0.02em;
