@@ -75,3 +75,9 @@ export const CountDownText = styled.div`
   line-height: 22px;
   font-family: sans-serif;
   `;
+
+export const SloganRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0 0;
+`;

@@ -3,6 +3,7 @@ import { Routes } from "../types/enums";
 import * as s from "./Home.styles";
 import Top from "./Top";
 import ReactPlayer from 'react-player'
+import SloganComponent from "./sloganComp/SloganComp";
 
 const Home = () => {
 
@@ -35,6 +36,11 @@ const Home = () => {
             </s.Field>
           </s.FieldFrame>
         </s.Row1>
+        <s.SloganRow>
+          <SloganComponent upperText={'The pain of'} lowerText={"DEFEAT"} />
+          <SloganComponent upperText={"The elation of"} lowerText={"VICTORY"} />
+          <SloganComponent upperText={"A celebration of"} lowerText={"DIVERSITY"} />
+        </s.SloganRow>
       </s.Content>
       <Link to={Routes.PASSWORD}>
         <button>Admin page</button>
