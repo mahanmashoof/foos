@@ -67,6 +67,9 @@ const Home = () => {
           <DateComp date={HOME_CONSTANTS.DATE2.date} heading={HOME_CONSTANTS.DATE2.heading} text={HOME_CONSTANTS.DATE2.text}></DateComp>
           <DateComp date={HOME_CONSTANTS.DATE3.date} heading={HOME_CONSTANTS.DATE3.heading} text={HOME_CONSTANTS.DATE3.text}></DateComp>
         </s.SloganRow>
+        <s.SloganRow style={{ marginBottom: '0' }}>
+        </s.SloganRow>
+        <s.Heading>GIVE ME THE LATEST GOSSIP!</s.Heading>
       </s.Content>
       <Link to={Routes.PASSWORD}>
         <button>Admin page</button>
