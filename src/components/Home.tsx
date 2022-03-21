@@ -6,6 +6,7 @@ import ReactPlayer from 'react-player'
 import SloganComponent from "./sloganComp/SloganComp";
 import { HOME_CONSTANTS } from "../types/constant/copy";
 import foosPlay from '../img/foosPlay.webp'
+import DateComp from "./datesComp/DateComp";
 
 const Home = () => {
 
@@ -23,7 +24,7 @@ const Home = () => {
         <s.Row1>
           <s.VideoFrame>
             <s.Video>
-              <ReactPlayer url='videos/foosIntro.mp4' width="100%" height="100%" controls={true} />
+              <ReactPlayer url='videos/foos-intro.mp4' width="100%" height="100%" controls={true} />
             </s.Video>
           </s.VideoFrame>
           <s.FieldFrame>
@@ -60,6 +61,12 @@ const Home = () => {
             </div>
           </s.TextPicBox>
         </s.TextFrameWide>
+        <s.Heading>HOW DOES THE FOOS TOURNAMENT WORK?</s.Heading>
+        <s.SloganRow style={{ marginBottom: '0' }}>
+          <DateComp date={HOME_CONSTANTS.DATE1.date} heading={HOME_CONSTANTS.DATE1.heading} text={HOME_CONSTANTS.DATE1.text}></DateComp>
+          <DateComp date={HOME_CONSTANTS.DATE2.date} heading={HOME_CONSTANTS.DATE2.heading} text={HOME_CONSTANTS.DATE2.text}></DateComp>
+          <DateComp date={HOME_CONSTANTS.DATE3.date} heading={HOME_CONSTANTS.DATE3.heading} text={HOME_CONSTANTS.DATE3.text}></DateComp>
+        </s.SloganRow>
       </s.Content>
       <Link to={Routes.PASSWORD}>
         <button>Admin page</button>

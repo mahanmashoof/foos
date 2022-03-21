@@ -6,5 +6,20 @@ export const HOME_CONSTANTS = Object.freeze({
         P2: 'How do I join the fun you ask? Great news, you already have! All Mobientos, Mobientas and Mobientx have been signed up. IF for some horrible reason you do not wish to, or cannot take part then please talk to Philip or Fred and they will assist in getting you a copy of the 376 page opt out form.',
         P3: 'There will also be off pitch drama as well with prizes awarded for:',
         P4: 'best dressed • most improved • best young talent • noisiest team and so much more!',
-    }
+    },
+    DATE1: {
+        date: 'April 11th 14:00',
+        heading: 'Draw & group stage',
+        text: 'We assign you to a foos-partner and you get to represent a random country of (not) your choice. You will have one month to play your opponents.',
+    },
+    DATE2: {
+        date: 'May 9th',
+        heading: 'Knockout stage',
+        text: "The winning teams continue to Knockout stage and meet the other champions from group stage. Now it's getting damn serious in here!",
+    },
+    DATE3: {
+        date: 'May 27th ',
+        heading: 'FINAL',
+        text: 'The 2 strongest opponents go head on head into the final where charisma, uniqueness, nerve and talent decide everything. Be prepared!',
+    },
 });

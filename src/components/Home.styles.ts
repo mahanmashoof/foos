@@ -113,3 +113,13 @@ export const TextPicBox = styled(TextBox)`
   display: flex;
   padding: 0 2px 2px 0;
 `;
+
+export const Heading = styled.div`
+  font-family: 'Queen of Camelot';
+  font-style: italic;
+  font-size: 48px;
+  line-height: 62px;
+  color: #FFFFFF;
+  text-shadow: 2px 4px 4px #0200A4;
+  margin: 80px 0 0;
+`;
