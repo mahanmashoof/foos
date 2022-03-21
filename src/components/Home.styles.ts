@@ -35,6 +35,10 @@ export const Field = styled(s.FrameInner)`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border-top: 3px solid black;
+  border-left: 3px solid black;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
 `;
 
 export const CountDownHeading = styled.div`
@@ -79,5 +83,33 @@ export const CountDownText = styled.div`
 export const SloganRow = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 40px 0 0;
+  margin: 40px 0 80px;
+`;
+
+export const TextFrame = styled(s.Frame)`
+  width: 1130px;
+  margin: 40px auto 0;
+`;
+
+export const TextBox = styled(s.TextBox)`
+  text-align: center;
+  color: #0200a4;
+  padding: 24px 20px;
+  border-top: 3px solid black;
+  border-left: 3px solid black;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  line-height: 29px;
+  letter-spacing: -0.02em;
+`;
+
+export const TextFrameWide = styled(TextFrame)`
+  width: 100%;
+`;
+
+export const TextPicBox = styled(TextBox)`
+  display: flex;
+  padding: 0;
 `;

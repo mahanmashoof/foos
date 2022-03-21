@@ -20,6 +20,7 @@ export const FrameInner = styled.div`
   width: 100%;
   height: 100%;
   box-shadow: 2px 2px #ffffff;
+  box-sizing: border-box;
 `;
 
 export const Row = styled.div`
@@ -42,4 +43,8 @@ export const Button = styled.button<TypeButtonProps>`
     line-height: 28px;
     letter-spacing: -0.02em;
   }
+`;
+
+export const TextBox = styled(FrameInner)`
+  background-color: white;
 `;

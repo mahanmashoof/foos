@@ -4,6 +4,8 @@ import * as s from "./Home.styles";
 import Top from "./Top";
 import ReactPlayer from 'react-player'
 import SloganComponent from "./sloganComp/SloganComp";
+import { HOME_CONSTANTS } from "../types/constant/copy";
+import foosPlay from '../img/foosPlay.webp'
 
 const Home = () => {
 
@@ -41,6 +43,23 @@ const Home = () => {
           <SloganComponent upperText={"The elation of"} lowerText={"VICTORY"} />
           <SloganComponent upperText={"A celebration of"} lowerText={"DIVERSITY"} />
         </s.SloganRow>
+        <s.TextFrame>
+          <s.TextBox>{HOME_CONSTANTS.FIRST_BOX}</s.TextBox>
+        </s.TextFrame>
+        <s.TextFrame>
+          <s.TextBox>{HOME_CONSTANTS.SECOND_BOX}</s.TextBox>
+        </s.TextFrame>
+        <s.TextFrameWide>
+          <s.TextPicBox>
+            <img alt='' src={foosPlay} style={{ width: '50%', objectFit: 'cover' }} />
+            <div>
+              <s.TextBox style={{ border: 'none', height: 'fit-content', textAlign: 'left' }}>{HOME_CONSTANTS.THIRD_BOX.P1}</s.TextBox>
+              <s.TextBox style={{ border: 'none', height: 'fit-content', textAlign: 'left' }}>{HOME_CONSTANTS.THIRD_BOX.P2}</s.TextBox>
+              <s.TextBox style={{ border: 'none', height: 'fit-content', textAlign: 'left' }}>{HOME_CONSTANTS.THIRD_BOX.P3}</s.TextBox>
+              <s.TextBox style={{ border: 'none', height: 'fit-content', textAlign: 'left' }}>{HOME_CONSTANTS.THIRD_BOX.P4}</s.TextBox>
+            </div>
+          </s.TextPicBox>
+        </s.TextFrameWide>
       </s.Content>
       <Link to={Routes.PASSWORD}>
         <button>Admin page</button>
