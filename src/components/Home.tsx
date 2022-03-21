@@ -11,12 +11,13 @@ import GossipComp from "./gossipComp/GossipComp";
 
 const Home = () => {
 
-  const start = new Date('2022-04-11 09:00')
+  const start = new Date('2022-04-11T09:00')
   const now = new Date()
   const diff = (start.getTime() - now.getTime()) / 1000
   const daysLeft = diff > 0 ? Math.floor(diff / 60 / 60 / 24) : 0
   const hoursLeft = diff > 0 ? Math.floor((diff - daysLeft * 24 * 3600) / 3600) : 0
   const minLeft = diff > 0 ? Math.floor((diff - daysLeft * 24 * 3600 - hoursLeft * 3600) / 60) : 0
+  console.log(start)
 
   return (
     <s.Main>
