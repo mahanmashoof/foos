@@ -111,5 +111,5 @@ export const TextFrameWide = styled(TextFrame)`
 
 export const TextPicBox = styled(TextBox)`
   display: flex;
-  padding: 0;
+  padding: 0 2px 2px 0;
 `;
