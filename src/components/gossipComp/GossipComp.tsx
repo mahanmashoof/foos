@@ -6,7 +6,7 @@ interface props {
     text: string
 }
 
-const SloganComponent = (props: props) => {
+const GossipComponent = (props: props) => {
     return (
         <s.Frame>
             <s.FrameInner>
@@ -20,4 +20,4 @@ const SloganComponent = (props: props) => {
     )
 }
 
-export default SloganComponent
+export default GossipComponent
