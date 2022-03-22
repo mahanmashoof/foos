@@ -7,13 +7,12 @@ export const Row = styled.div`
 `;
 
 export const FrameNumber = styled(s.Frame)`
-    width: 144px;
-    height: 144px;
     margin-right: 16px;
+    text-align: center;
 `;
 
 export const FrameRules = styled(s.Frame)`
-    height: 144px;
+    width: -webkit-fill-available;
 `;
 
 export const FrameInner = styled(s.FrameInner)`
@@ -31,28 +30,29 @@ export const FrameInner = styled(s.FrameInner)`
   `;
 
 export const RuleNumber = styled.div`
-    font-size: 20px;
-    line-height: 24px;
-    color: #0200a4;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Queen of Camelot';
+    font-style: italic;
+    font-weight: normal;
+    font-size: 72px;
+    line-height: 72px;
+    color: #EF5DA8;
+    width: 80px;
     `;
 
 export const Heading = styled.div`
     font-size: 20px;
     line-height: 36px;
-    color: #ef50a8;
+    color: #0200a4;
     font-style: italic;
     font-weight: 600;
     letter-spacing: -0.02em;
     font-family: 'Roboto', sans-serif;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
     `;
 
 export const Text = styled.div`
-    font-size: 22px;
-    line-height: 28px;
+    font-size: 16px;
+    line-height: 22px;
     color: #0200a4;
     font-weight: 400;
     letter-spacing: -0.02em;

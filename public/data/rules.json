@@ -1,22 +1,18 @@
-{
-    "rule1": {
-        "id": 1,
+[
+    {
         "heading": "No scoring straight from kick-off",
         "text": "The ball needs to leave the middle area of the table (with the five-man rods) before you can score a goal. A shot must be taken with another player after the ball leaves the middle area, it is not enough if the ball just touches another player on its way to the goal."
     },
-    "rule2": {
-        "id": 2,
+    {
         "heading": "Dead ball",
         "text": "A ball shall be declared a dead ball when it has completely stopped its motion and is not within reach of any player for 5 seconds. If the ball is declared dead it shall be put back into play at the five-man rod by the team who originally served the ball."
     },
-    "rule3": {
-        "id": 3,
+    {
         "heading": "Switching position after 5 scored goals",
         "text": "When a team has scored five (5) goals they much switch position so that the player playing the front rods will move to the back and vice versa."
     },
-    "rule4": {
-        "id": 4,
+    {
         "heading": "No spinning of rods or shaking table",
         "text": "It is not allowed to spin your rod at any point during the game. If a shot is taken by spinning your rod, the goal will be disallowed, and the ball shall be served at the five-man rod. It is not allowed to disrupt the game by shaking or slamming the rod."
     }
-}
+]

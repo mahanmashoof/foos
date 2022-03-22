@@ -4,8 +4,13 @@ import Footer from "./footer/Footer";
 import RulesComponent from "./rulesComp/RulesComp";
 import { useEffect, useState } from "react";
 
+interface rules {
+  heading: string,
+  text: string
+}
+
 const Home = () => {
-  const [rules, setRules] = useState()
+  const [rules, setRules] = useState<rules[]>([{ heading: '', text: '' }])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,8 +23,6 @@ const Home = () => {
     fetchData();
   }, [])
 
-  console.log(rules)
-
   return (
     <s.Main>
       <Header />
@@ -27,7 +30,9 @@ const Home = () => {
         <s.Heading>The foos cup rulebook</s.Heading>
         <s.Frame>
           <s.FrameInner>
-            {<RulesComponent ruleNumber={0} heading={"xx"} text={"cc"} />}
+            {rules.map((rule, i) => (
+              <RulesComponent key={i} ruleNumber={i + 1} heading={rule.heading} text={rule.text} />
+            ))}
           </s.FrameInner>
         </s.Frame>
       </s.Content>
