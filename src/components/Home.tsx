@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-import { Routes } from "../types/enums";
 import * as s from "./Home.styles";
 import Top from "./Top";
 import ReactPlayer from 'react-player'
@@ -8,6 +6,7 @@ import { HOME_CONSTANTS } from "../types/constant/copy";
 import foosPlay from '../img/foosPlay.webp'
 import DateComp from "./datesComp/DateComp";
 import GossipComp from "./gossipComp/GossipComp";
+import Footer from "./footer/Footer";
 
 const Home = () => {
 
@@ -17,7 +16,6 @@ const Home = () => {
   const daysLeft = diff > 0 ? Math.floor(diff / 60 / 60 / 24) : 0
   const hoursLeft = diff > 0 ? Math.floor((diff - daysLeft * 24 * 3600) / 3600) : 0
   const minLeft = diff > 0 ? Math.floor((diff - daysLeft * 24 * 3600 - hoursLeft * 3600) / 60) : 0
-  console.log(start)
 
   return (
     <s.Main>
@@ -76,9 +74,7 @@ const Home = () => {
           <GossipComp imgUrl='photos/emelie.png' heading={HOME_CONSTANTS.GOSSIP3.heading} text={HOME_CONSTANTS.GOSSIP3.text}></GossipComp>
         </s.SloganRow>
       </s.Content>
-      <Link to={Routes.PASSWORD}>
-        <button>Admin page</button>
-      </Link>
+      <Footer />
     </s.Main>
   );
 };
