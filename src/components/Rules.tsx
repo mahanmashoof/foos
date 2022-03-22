@@ -1,18 +1,20 @@
-import { Link } from "react-router-dom";
 import * as s from "./Rules.styles";
-import Top from "./header/Header";
+import Header from "./header/Header";
+import Footer from "./footer/Footer";
 
 const Home = () => {
   return (
     <s.Main>
-      <Top />
+      <Header />
       <s.Content>
-        This is the Rules page
-        <br />
-        <Link to="/password">
-          <button>Admin page</button>
-        </Link>
+        <s.Heading>The foos cup rulebook</s.Heading>
+        <s.Frame>
+          <s.FrameInner>
+
+          </s.FrameInner>
+        </s.Frame>
       </s.Content>
+      <Footer />
     </s.Main>
   );
 };

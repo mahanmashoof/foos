@@ -1,5 +1,5 @@
 import * as s from "./Home.styles";
-import Top from "./header/Header";
+import Header from "./header/Header";
 import ReactPlayer from 'react-player'
 import SloganComponent from "./sloganComp/SloganComp";
 import { HOME_CONSTANTS } from "../types/constant/copy";
@@ -19,7 +19,7 @@ const Home = () => {
 
   return (
     <s.Main>
-      <Top />
+      <Header />
       <s.Content>
         <s.Row1>
           <s.VideoFrame>
