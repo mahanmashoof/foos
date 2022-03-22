@@ -1,11 +1,11 @@
 import { Link, useLocation } from 'react-router-dom'
-import logoLeft from './../img/MFC-logo.png'
-import flamingo from './../img/flamingosLogo.png'
-import mario from './../img/mario_kart.gif'
-import ball from './../img/ball.png'
-import flower from './../img/flower.png'
-import * as s from "./Top.styles";
-import { Routes } from '../types/enums'
+import logoLeft from '../../img/MFC-logo.png'
+import flamingo from '../../img/flamingosLogo.png'
+import mario from '../../img/mario_kart.gif'
+import ball from '../../img/ball.png'
+import flower from '../../img/flower.png'
+import * as s from "./Header.styles";
+import { Routes } from '../../types/enums'
 
 const Top = () => {
 

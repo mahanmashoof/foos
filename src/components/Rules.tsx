@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import * as s from "./Rules.styles";
-import Top from "./Top";
+import Top from "./header/Header";
 
 const Home = () => {
   return (

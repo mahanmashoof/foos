@@ -1,5 +1,5 @@
 import * as s from "./Home.styles";
-import Top from "./Top";
+import Top from "./header/Header";
 import ReactPlayer from 'react-player'
 import SloganComponent from "./sloganComp/SloganComp";
 import { HOME_CONSTANTS } from "../types/constant/copy";

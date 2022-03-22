@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import background from "./../img/starBg.png";
-import * as s from './Global/Global.styles'
+import background from "../../img/starBg.png";
+import * as s from '../Global/Global.styles'
 
 export const Frame = styled(s.Frame)``;
 
