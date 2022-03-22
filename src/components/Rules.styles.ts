@@ -13,9 +13,8 @@ export const Frame = styled(s.Frame)``;
 
 export const FrameInner = styled(s.FrameInner)`
   background-image: url(${frameBg});
-  height: 100px;
   background-size: cover;
-
+  padding: 52px 52px 60px;
 `;
 
 export const Heading = styled.div`
