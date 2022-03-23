@@ -73,6 +73,11 @@ export const CountDownMin = styled(CountDownDays)`
   line-height: 44px;
 `;
 
+export const CountDownSec = styled(CountDownDays)`  
+  font-size: 22px;
+  line-height: 28px;
+`;
+
 export const CountDownText = styled.div`
   color: #ffffff;
   letter-spacing: -0.02em;

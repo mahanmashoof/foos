@@ -7,15 +7,36 @@ import foosPlay from '../img/foosPlay.webp'
 import DateComp from "./datesComp/DateComp";
 import GossipComp from "./gossipComp/GossipComp";
 import Footer from "./footer/Footer";
+import { useCallback, useEffect, useState } from "react";
 
 const Home = () => {
 
-  const start = new Date('2022-04-11T09:00')
-  const now = new Date()
-  const diff = (start.getTime() - now.getTime()) / 1000
-  const daysLeft = diff > 0 ? Math.floor(diff / 60 / 60 / 24) : 0
-  const hoursLeft = diff > 0 ? Math.floor((diff - daysLeft * 24 * 3600) / 3600) : 0
-  const minLeft = diff > 0 ? Math.floor((diff - daysLeft * 24 * 3600 - hoursLeft * 3600) / 60) : 0
+  const getTimeStamp = useCallback(() => {
+    const start = new Date('2022-04-11T09:00')
+    const now = new Date()
+    const diff = (start.getTime() - now.getTime()) / 1000
+    const daysLeft = diff > 0 ? Math.floor(diff / 60 / 60 / 24) : 0
+    const hoursLeft = diff > 0 ? Math.floor((diff - daysLeft * 24 * 3600) / 3600) : 0
+    const minLeft = diff > 0 ? Math.floor((diff - daysLeft * 24 * 3600 - hoursLeft * 3600) / 60) : 0
+    const staticSec = diff > 0 ? Math.floor((diff - daysLeft * 24 * 3600 - hoursLeft * 3600 - minLeft * 60)) : 0
+
+    return {
+      daysLeft,
+      hoursLeft,
+      minLeft,
+      staticSec,
+    }
+  }, [])
+
+  const timeStamp = getTimeStamp();
+  const [secLeft, setSecLeft] = useState(timeStamp.staticSec)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSecLeft(getTimeStamp().staticSec)
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [getTimeStamp])
 
   return (
     <s.Main>
@@ -30,12 +51,14 @@ const Home = () => {
           <s.FieldFrame>
             <s.Field>
               <s.CountDownHeading>Tournament starts in</s.CountDownHeading>
-              <s.CountDownDays>{daysLeft}</s.CountDownDays>
+              <s.CountDownDays>{timeStamp.daysLeft}</s.CountDownDays>
               <s.CountDownText>Days</s.CountDownText>
-              <s.CountDownHours>{hoursLeft}</s.CountDownHours>
+              <s.CountDownHours>{timeStamp.hoursLeft}</s.CountDownHours>
               <s.CountDownText>Hours</s.CountDownText>
-              <s.CountDownMin>{minLeft}</s.CountDownMin>
+              <s.CountDownMin>{timeStamp.minLeft}</s.CountDownMin>
               <s.CountDownText>Minutes</s.CountDownText>
+              <s.CountDownSec>{secLeft}</s.CountDownSec>
+              <s.CountDownText>Seconds</s.CountDownText>
             </s.Field>
           </s.FieldFrame>
         </s.Row1>
