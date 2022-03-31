@@ -35,10 +35,3 @@ export const HOME_CONSTANTS = Object.freeze({
         text: 'The young rookie is taking her first tournament seriously with a Costa Rican training camp.',
     },
 });
-
-export const ROUTES = {
-    home: '/',
-    password: 'password',
-    rules: 'rules',
-    teams: 'teams',
-}

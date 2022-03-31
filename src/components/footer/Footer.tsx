@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import * as s from './Footer.styles'
-import { Routes } from "../../types/enums";
+import { Paths } from "../../types/enums";
 
 
 const Footer = () => {
@@ -11,7 +11,7 @@ const Footer = () => {
                     Copyright © Mobiento 2022. All rights reserved.
                 </s.FooterText>
                 <s.FooterText>
-                    <Link style={{ textDecoration: 'none', color: 'white' }} to={Routes.PASSWORD}>
+                    <Link style={{ textDecoration: 'none', color: 'white' }} to={Paths.PASSWORD}>
                         Admin page
                     </Link>
                 </s.FooterText>

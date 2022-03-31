@@ -4,19 +4,19 @@ import Admin from "./components/Admin/Admin";
 import Password from "./components/Password";
 import Rules from "./components/Rules";
 import Teams from "./components/Teams";
-import { ROUTES } from "./types/constant/copy";
+import { Paths } from './types/enums'
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path={ROUTES.home} element={<Home />} />
-        <Route path={ROUTES.password} element={<Password />} />
-        <Route path={ROUTES.rules} element={<Rules />} />
+        <Route path={Paths.HOME} element={<Home />} />
+        <Route path={Paths.PASSWORD} element={<Password />} />
+        <Route path={Paths.RULES} element={<Rules />} />
         <Route path={process.env.REACT_APP_adminRoute} element={<Admin />} />
-        <Route path={ROUTES.teams} element={<Teams />} />
+        <Route path={Paths.TEAMS} element={<Teams />} />
       </Routes>
-    </Router>
+    </Router >
   );
 }
 

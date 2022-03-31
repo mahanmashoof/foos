@@ -1,6 +1,7 @@
-export enum Routes {
+export enum Paths {
     HOME = '/',
     RULES = '/rules',
     ADMIN = '/admin',
-    PASSWORD = '/password'
+    PASSWORD = '/password',
+    TEAMS = '/teams'
 }

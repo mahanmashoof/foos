@@ -5,7 +5,7 @@ import mario from '../../img/mario_kart.gif'
 import ball from '../../img/ball.png'
 import flower from '../../img/flower.png'
 import * as s from "./Header.styles";
-import { Routes } from '../../types/enums'
+import { Paths } from '../../types/enums'
 
 const Top = () => {
 
@@ -25,13 +25,13 @@ const Top = () => {
                         <s.Icons alt='' src={ball} />
                         <s.Icons alt='' src={flower} />
                         <s.ButtonBox>
-                            <Link to={Routes.HOME}>
-                                <s.Button pressed={location.pathname === Routes.HOME}>
+                            <Link to={Paths.HOME}>
+                                <s.Button pressed={location.pathname === Paths.HOME}>
                                     <div>Home</div>
                                 </s.Button>
                             </Link>
-                            <Link to={Routes.RULES}>
-                                <s.Button pressed={location.pathname === Routes.RULES}>
+                            <Link to={Paths.RULES}>
+                                <s.Button pressed={location.pathname === Paths.RULES}>
                                     <div>Rules</div>
                                 </s.Button>
                             </Link>
