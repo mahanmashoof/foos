@@ -1,22 +1,26 @@
 import db from "../../firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { useState } from "react";
-import { playerAttributesDropdown } from "../../helpers/dropdowns";
+import { countriesDropdown, groupsDropdown, playersDropdown } from "../../helpers/dropdowns";
 
 const Admin = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [speed, setSpeed] = useState(0);
-  const [rage, setRage] = useState(0);
 
-  const addPlayer = async () => {
-    await addDoc(collection(db, "players"), {
+  //Add a team
+  const [name, setName] = useState("");
+  const [flagUrl, setFlagUrl] = useState("");
+  const [player1, setPlayer1] = useState('');
+  const [player2, setPlayer2] = useState('');
+  const [group, setGroup] = useState('');
+
+  const addTeam = async () => {
+    await addDoc(collection(db, "teams"), {
       name: name,
-      email: email,
-      attributes: {
-        speed: speed,
-        rage: rage,
+      flagUrl: flagUrl,
+      players: {
+        player1: player1,
+        player2: player2,
       },
+      group: group,
     })
       .then(() => {
         alert(`${name} added`);
@@ -28,34 +32,41 @@ const Admin = () => {
   return (
     <div>
       <h1 style={{ textAlign: "center" }}>Admin page</h1>
-      <h3>Add Player</h3>
-      <input
-        placeholder="Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <label htmlFor="speed">Speed:</label>
-      <select id="speed" onChange={(e) => setSpeed(+e.target.value)}>
-        {playerAttributesDropdown.map((option, i) => (
+      <h3>Add Team</h3>
+      <label htmlFor="countries">Countries:</label>
+      <select id="countries" onChange={(e) => { setName(e.target.value); setFlagUrl(`flags/${e.target.value}.png`) }}>
+        {countriesDropdown.map((option, i) => (
           <option key={i} value={option}>
             {option}
           </option>
         ))}
       </select>
-      <label htmlFor="rage">Rage:</label>
-      <select id="rage" onChange={(e) => setRage(+e.target.value)}>
-        {playerAttributesDropdown.map((option, i) => (
+      <label htmlFor="group">Group:</label>
+      <select id="group" onChange={(e) => setGroup(e.target.value)}>
+        {groupsDropdown.map((option, i) => (
           <option key={i} value={option}>
             {option}
           </option>
         ))}
       </select>
-      <button onClick={addPlayer}>add player</button>
+      <label htmlFor="player1">Player 1:</label>
+      <select id="player1" onChange={(e) => setPlayer1(e.target.value)}>
+        {playersDropdown.map((option, i) => (
+          <option key={i} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+      <label htmlFor="player2">Player 2:</label>
+      <select id="player2" onChange={(e) => setPlayer2(e.target.value)}>
+        {playersDropdown.map((option, i) => (
+          <option key={i} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+
+      <button onClick={addTeam}>add team</button>
     </div>
   );
 };
