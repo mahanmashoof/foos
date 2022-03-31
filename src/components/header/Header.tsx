@@ -35,6 +35,11 @@ const Top = () => {
                                     <div>Rules</div>
                                 </s.Button>
                             </Link>
+                            <Link to={Paths.TEAMS}>
+                                <s.Button pressed={location.pathname === Paths.TEAMS}>
+                                    <div>Teams</div>
+                                </s.Button>
+                            </Link>
                         </s.ButtonBox>
                         <s.Icons alt='' src={flower} />
                         <s.Icons alt='' src={ball} />

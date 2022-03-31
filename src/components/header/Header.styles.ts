@@ -53,7 +53,6 @@ margin: 0 1rem;
 `;
 
 export const ButtonBox = styled(s.Frame)`
-width: 386px;
 margin: 0 124px;
 display: flex;
 justify-content: space-around;
