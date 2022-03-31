@@ -35,3 +35,7 @@ export const HOME_CONSTANTS = Object.freeze({
         text: 'The young rookie is taking her first tournament seriously with a Costa Rican training camp.',
     },
 });
+
+export const TEAMS_CONSTANTS = Object.freeze({
+    FIRST_BOX: 'Please note that the teams are presented in alphabetical order - this does not reflect the order of play.',
+});
