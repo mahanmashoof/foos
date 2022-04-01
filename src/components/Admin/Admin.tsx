@@ -1,8 +1,7 @@
 import db from "../../firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { setDoc, doc } from "firebase/firestore";
 import { useState } from "react";
 import { countriesDropdown, groupsDropdown, playersDropdown } from "../../helpers/dropdowns";
-import { useGetTeams } from "../../hooks/api/useApi";
 
 const Admin = () => {
 
@@ -16,7 +15,7 @@ const Admin = () => {
   const [group, setGroup] = useState('');
 
   const addTeam = async () => {
-    await addDoc(collection(db, "teams"), {
+    await setDoc(doc(db, "teams", name), {
       name: name,
       flagUrl: flagUrl,
       players: {
@@ -30,9 +29,6 @@ const Admin = () => {
         },
       },
       group: group,
-      wins: 0,
-      goalsMade: 0,
-      goalsAgainst: 0,
     })
       .then(() => {
         alert(`${name} added`);
@@ -40,9 +36,6 @@ const Admin = () => {
       })
       .catch((err) => console.log(err));
   };
-
-  const { data: teams } = useGetTeams()
-  console.log(teams)
 
   return (
     <div>
