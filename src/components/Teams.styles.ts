@@ -24,7 +24,7 @@ export const Heading = styled.div`
 
 export const TextFrame = styled(s.Frame)`
   width: 1130px;
-  margin: 40px auto 0;
+  margin: 40px auto 8px;
 `;
 
 export const TextBox = styled(s.TextBox)`
@@ -39,4 +39,9 @@ export const TextBox = styled(s.TextBox)`
   font-size: 22px;
   line-height: 29px;
   letter-spacing: -0.02em;
+`;
+
+export const Teams = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `;
