@@ -1,17 +1,22 @@
 import * as s from './TeamComp.styles'
 import TeamName from './TeamName'
 
-const TeamComp = () => {
+interface Team {
+    country: string,
+    player1: string,
+    player2: string,
+}
+const TeamComp = (props: Team) => {
 
     return (
         <s.Main>
-            <TeamName text={'ARGENTINA'} />
+            <TeamName text={props.country} />
             <s.PlyerCardsContainer>
                 <s.PlayerCardFrame>
-                    <s.PlayerCrad src="player-cards/tor.png" alt="..." />
+                    <s.PlayerCrad src={props.player1} alt="..." />
                 </s.PlayerCardFrame>
                 <s.PlayerCardFrame>
-                    <s.PlayerCrad src="player-cards/lea.png" alt="..." />
+                    <s.PlayerCrad src={props.player2} alt="..." />
                 </s.PlayerCardFrame>
             </s.PlyerCardsContainer>
         </s.Main>
