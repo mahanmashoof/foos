@@ -92,9 +92,9 @@ const Home = () => {
         </s.SloganRow>
         <s.Heading>GIVE ME THE LATEST GOSSIP!</s.Heading>
         <s.SloganRow style={{ marginBottom: '0' }}>
-          <GossipComp imgUrl='photos/björn-vad.png' heading={HOME_CONSTANTS.GOSSIP1.heading} text={HOME_CONSTANTS.GOSSIP1.text}></GossipComp>
-          <GossipComp imgUrl='photos/hwa-rang.png' heading={HOME_CONSTANTS.GOSSIP2.heading} text={HOME_CONSTANTS.GOSSIP2.text}></GossipComp>
-          <GossipComp imgUrl='photos/emelie.png' heading={HOME_CONSTANTS.GOSSIP3.heading} text={HOME_CONSTANTS.GOSSIP3.text}></GossipComp>
+          <GossipComp imgUrl='news-photos/björn-vad.png' heading={HOME_CONSTANTS.GOSSIP1.heading} text={HOME_CONSTANTS.GOSSIP1.text}></GossipComp>
+          <GossipComp imgUrl='news-photos/hwa-rang.png' heading={HOME_CONSTANTS.GOSSIP2.heading} text={HOME_CONSTANTS.GOSSIP2.text}></GossipComp>
+          <GossipComp imgUrl='news-photos/emelie.png' heading={HOME_CONSTANTS.GOSSIP3.heading} text={HOME_CONSTANTS.GOSSIP3.text}></GossipComp>
         </s.SloganRow>
       </s.Content>
       <Footer />
