@@ -1,11 +1,14 @@
 import db from "../../firebase";
 import { setDoc, doc } from "firebase/firestore";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { countriesDropdown, groupsDropdown, playersDropdown } from "../../helpers/dropdowns";
+import { useGetTeams } from "../../hooks/api/useApi";
+import { APITeam } from "../../models/api/APIGroups";
+import { GroupInfo } from "../../types/types";
 
 const Admin = () => {
 
-  //Add a team
+  //--- Add a team
   const [name, setName] = useState("");
   const [flagUrl, setFlagUrl] = useState("");
   const [player1, setPlayer1] = useState('');
@@ -36,6 +39,25 @@ const Admin = () => {
       })
       .catch((err) => console.log(err));
   };
+  // ---
+
+  const { data: teams } = useGetTeams()
+
+  const numberOfGamesPerGroup = (group: APITeam[]) => {
+    return group && group.length > 0 ? (group.length - 1) * group.length / 2 : 0
+  }
+
+  const [allGroups, setAllGroups] = useState<GroupInfo[]>([])
+
+  useEffect(() => {
+    if (teams.length === 0) return
+    let allGroups: GroupInfo[] = []
+    for (let i = 1; i < groupsDropdown.length; i++) {
+      const group: APITeam[] = teams.filter((team) => team.group === groupsDropdown[i])
+      allGroups.push([groupsDropdown[i], group, numberOfGamesPerGroup(group)])
+    }
+    setAllGroups(allGroups)
+  }, [teams])
 
   return (
     <div>
@@ -76,6 +98,20 @@ const Admin = () => {
         </select>
         <button onClick={addTeam}>add team</button>
       </div>
+      {allGroups &&
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2rem' }}>
+          {allGroups.map((group, i) =>
+            <div key={i}>
+              <div>{group[0]}</div>
+              {group[1].map((team, i) => (
+                <div key={i}>{team.name}</div>
+              ))
+              }
+              <hr />
+              <div>Games played in this group: {group[2]}</div>
+            </div>
+          )}
+        </div>}
     </div>
   );
 };
