@@ -1,5 +1,5 @@
 import db from "../../firebase";
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, deleteDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { countriesDropdown, groupsDropdown, playersDropdown } from "../../helpers/dropdowns";
 import { useGetTeams } from "../../hooks/api/useApi";
@@ -35,7 +35,6 @@ const Admin = () => {
     })
       .then(() => {
         alert(`${name} added`);
-        window.location.reload();
       })
       .catch((err) => console.log(err));
   };
@@ -59,11 +58,19 @@ const Admin = () => {
     setAllGroups(allGroups)
   }, [teams])
 
+  // --- Remove a team
+  const deleteTeam = async (team: string) => {
+    if (window.confirm(`are you sure you want to delete ${team}?`)) {
+      await deleteDoc(doc(db, "teams", team))
+    }
+  }
+  // ---
+
   return (
     <div>
-      <div>
-        <h1 style={{ textAlign: "center" }}>Admin page</h1>
-        <h3>Add Team</h3>
+      <div id="create-team">
+        <h1 style={{ textAlign: "center" }}>ugly Admin page</h1>
+        <h3>1) Add teams to the tournament by selecting team name, group, player1, and player2</h3>
         <label htmlFor="countries">Countries:</label>
         <select id="countries" onChange={(e) => { setName(e.target.value); setFlagUrl(`flags/${e.target.value}.png`) }}>
           {countriesDropdown.map((option, i) => (
@@ -104,11 +111,14 @@ const Admin = () => {
             <div key={i}>
               <div>{group[0]}</div>
               {group[1].map((team, i) => (
-                <div key={i}>{team.name}</div>
+                <div key={i} style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <div>{team.name}</div>
+                  <div style={{ cursor: 'pointer' }} onClick={() => deleteTeam(team.name)}>&#128465;</div>
+                </div>
               ))
               }
               <hr />
-              <div>Games played in this group: {group[2]}</div>
+              <div>Total number  of games: {group[2]}</div>
             </div>
           )}
         </div>}
