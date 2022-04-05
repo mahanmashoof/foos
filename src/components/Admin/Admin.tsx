@@ -94,7 +94,7 @@ const Admin = () => {
 
   //--- Add a game
   const addGame = async (teamName1: string, teamName2: string) => {
-    await addDoc(collection(db, "games"), {
+    await setDoc(doc(db, "games", `${teamName1}-${teamName2}`), {
       group: group,
       status: GameStatus.NOT_PLAYED,
       team1: {
@@ -120,6 +120,11 @@ const Admin = () => {
       addGame(combo[0], combo[1])
     })
   }
+
+  const [homeScore, setHomeScore] = useState(0)
+  const [awayScore, setAwayScore] = useState(0)
+
+  console.log(homeScore, '-', awayScore)
 
   return (
     <div>
@@ -189,6 +194,21 @@ const Admin = () => {
             ))}
           </select>
           <button onClick={() => createGames()}>create group games</button>
+        </div>}
+      {games &&
+        <div>
+          {games.map((game, i) => (
+            <div key={i} style={{ display: 'flex', justifyContent: 'center', margin: '1rem 0' }}>
+              <div>{game.team1.name}</div>
+              <input type='number' onChange={(e) => setHomeScore(e.target.valueAsNumber)} />
+              <div>group {game.group}</div>
+              <input type='number' onChange={(e) => setAwayScore(e.target.valueAsNumber)} />
+              <div>{game.team2.name}</div>
+              <div style={{ cursor: 'pointer' }}>&#127383;</div>
+              <div style={{ cursor: 'pointer' }}>&#128465;</div>
+            </div>
+          ))
+          }
         </div>}
     </div>
   );
