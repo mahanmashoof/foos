@@ -1,7 +1,7 @@
 import db from "../../firebase";
 import { setDoc, doc, deleteDoc, collection, addDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { countriesDropdown, groupsDropdown, playersDropdown } from "../../helpers/Dropdown";
+import { countriesDropdown, groupsDropdown, playersDropdown, booleanDropdown } from "../../helpers/Dropdown";
 import { useGetGames, useGetTeams } from "../../hooks/api/useApi";
 import { APITeam } from "../../models/api/APIGroups";
 import { GroupInfo } from "../../types/types";
@@ -123,8 +123,9 @@ const Admin = () => {
 
   const [homeScore, setHomeScore] = useState(0)
   const [awayScore, setAwayScore] = useState(0)
-
-  console.log(homeScore, '-', awayScore)
+  const [homeTeam, setHomeTeam] = useState('')
+  const [awayTeam, setAwayTeam] = useState('')
+  const [editResult, setEditResult] = useState('No')
 
   return (
     <div>
@@ -195,17 +196,31 @@ const Admin = () => {
           </select>
           <button onClick={() => createGames()}>create group games</button>
         </div>}
+      <h3 style={{ marginTop: '3rem' }}>3) Update the score in group games, recommended to do one by one!</h3>
       {games &&
         <div>
           {games.map((game, i) => (
-            <div key={i} style={{ display: 'flex', justifyContent: 'center', margin: '1rem 0' }}>
+            <div key={i} style={{ display: 'flex', justifyContent: 'space-around', margin: '1rem 0' }}>
               <div>{game.team1.name}</div>
               <input type='number' onChange={(e) => setHomeScore(e.target.valueAsNumber)} />
               <div>group {game.group}</div>
               <input type='number' onChange={(e) => setAwayScore(e.target.valueAsNumber)} />
               <div>{game.team2.name}</div>
-              <div style={{ cursor: 'pointer' }}>&#127383;</div>
-              <div style={{ cursor: 'pointer' }}>&#128465;</div>
+              <div>
+                <label htmlFor="edit">Edit game result:</label>
+                <select id="edit" onChange={(e) => { setEditResult(e.target.value); setHomeTeam(game.team1.name); setAwayTeam(game.team2.name) }}>
+                  {booleanDropdown.map((option, i) => (
+                    <option key={i} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              {editResult === 'Yes' && homeTeam === game.team1.name && awayTeam === game.team2.name &&
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <div style={{ cursor: 'pointer', margin: '0 8px' }}>&#127383;</div>
+                  <div style={{ cursor: 'pointer', margin: '0 8px' }}>&#128465;</div>
+                </div>}
             </div>
           ))
           }

@@ -1,4 +1,4 @@
-const GamesCompAdm = () => {
+const GamesComp = () => {
     return (
         <div style={{ display: 'flex' }}>
             <div>team1</div>
@@ -8,4 +8,4 @@ const GamesCompAdm = () => {
     )
 }
 
-export default GamesCompAdm
+export default GamesComp

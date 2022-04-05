@@ -80,3 +80,8 @@ export const groupsDropdown = [
   'D',
   'E',
 ]
+
+export const booleanDropdown = [
+  "No",
+  "Yes",
+]
