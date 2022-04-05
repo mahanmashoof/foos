@@ -13,3 +13,18 @@ export interface APITeam {
         },
     }
 }
+
+export interface APIGame {
+    group: string,
+    status: number,
+    team1: {
+        flagUrl: string,
+        goals: number,
+        name: string,
+    },
+    team2: {
+        flagUrl: string,
+        goals: number,
+        name: string,
+    },
+}

@@ -5,3 +5,8 @@ export enum Paths {
     PASSWORD = '/password',
     TEAMS = '/teams'
 }
+
+export enum GameStatus {
+    NOT_PLAYED = 0,
+    FINISHED = 1,
+}

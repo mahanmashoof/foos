@@ -1,11 +1,16 @@
 import { collection, orderBy, query, onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import firebase from "../../firebase";
-import { APITeam } from "../../models/api/APIGroups";
+import { APIGame, APITeam } from "../../models/api/APIGroups";
 
 const allTeams = query(
     collection(firebase, 'teams'),
     orderBy('name'),
+)
+
+const allGames = query(
+    collection(firebase, 'games'),
+    orderBy('group'),
 )
 
 export const useGetTeams = () => {
@@ -18,6 +23,21 @@ export const useGetTeams = () => {
                 allTeams.push(teams)
             });
             setData(allTeams)
+        })
+    }, [])
+    return { data }
+}
+
+export const useGetGames = () => {
+    const [data, setData] = useState<APIGame[]>([])
+    useEffect(() => {
+        onSnapshot(allGames, (querySnapshot) => {
+            let allGames: APIGame[] = []
+            querySnapshot.forEach((doc) => {
+                const games = doc.data() as APIGame;
+                allGames.push(games)
+            });
+            setData(allGames)
         })
     }, [])
     return { data }
