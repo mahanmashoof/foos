@@ -2,7 +2,7 @@ import db from "../../firebase";
 import { setDoc, doc, deleteDoc, collection, addDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { countriesDropdown, groupsDropdown, playersDropdown } from "../../helpers/Dropdown";
-import { useGetTeams } from "../../hooks/api/useApi";
+import { useGetGames, useGetTeams } from "../../hooks/api/useApi";
 import { APITeam } from "../../models/api/APIGroups";
 import { GroupInfo } from "../../types/types";
 import { GameStatus } from "../../types/enums";
@@ -67,6 +67,11 @@ const Admin = () => {
     }
   }
   // ---
+
+  const { data: games } = useGetGames()
+  const groupGamesDropdown = groupsDropdown.filter(x => !(games.map(team => (
+    team.group
+  )).filter((v, i, a) => a.indexOf(v) === i)).includes(x))
 
   const separatedGroup = teams.filter(team => team.group === group).map(team => team.name)
 
@@ -177,7 +182,7 @@ const Admin = () => {
           <h3 style={{ marginTop: '3rem' }}>2) When finished setting the groups, add teams to the tournament by selecting Group</h3>
           <label htmlFor="group"></label>
           <select id="group" onChange={(e) => setGroup(e.target.value)}>
-            {groupsDropdown.map((option, i) => (
+            {groupGamesDropdown.map((option, i) => (
               <option key={i} value={option}>
                 {option}
               </option>
