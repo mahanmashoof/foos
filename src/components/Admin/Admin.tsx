@@ -1,5 +1,5 @@
 import db from "../../firebase";
-import { setDoc, doc, deleteDoc, collection, addDoc } from "firebase/firestore";
+import { setDoc, doc, deleteDoc, collection, addDoc, updateDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { countriesDropdown, groupsDropdown, playersDropdown, booleanDropdown } from "../../helpers/Dropdown";
 import { useGetGames, useGetTeams } from "../../hooks/api/useApi";
@@ -127,6 +127,29 @@ const Admin = () => {
   const [awayTeam, setAwayTeam] = useState('')
   const [editResult, setEditResult] = useState('No')
 
+  //update game result
+  const updateGameResult = async () => {
+    await updateDoc(doc(db, 'games', `${homeTeam}-${awayTeam}`), {
+      status: GameStatus.FINISHED,
+      team1: {
+        name: homeTeam,
+        flagUrl: `flags/${homeTeam}.png`,
+        goals: homeScore,
+      },
+      team2: {
+        name: awayTeam,
+        flagUrl: `flags/${awayTeam}.png`,
+        goals: awayScore,
+      },
+    })
+      .then(() => alert('Result updated'))
+      .catch((err) => alert(err.message))
+  }
+
+  //update home team result
+  //update away team result
+  //delete game
+
   return (
     <div>
       <div id="create-team">
@@ -207,7 +230,7 @@ const Admin = () => {
               <input type='number' onChange={(e) => setAwayScore(e.target.valueAsNumber)} />
               <div>{game.team2.name}</div>
               <div>
-                <label htmlFor="edit">Edit game result:</label>
+                <label htmlFor="edit">Edit result:</label>
                 <select id="edit" onChange={(e) => { setEditResult(e.target.value); setHomeTeam(game.team1.name); setAwayTeam(game.team2.name) }}>
                   {booleanDropdown.map((option, i) => (
                     <option key={i} value={option}>
@@ -218,7 +241,7 @@ const Admin = () => {
               </div>
               {editResult === 'Yes' && homeTeam === game.team1.name && awayTeam === game.team2.name &&
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                  <div style={{ cursor: 'pointer', margin: '0 8px' }}>&#127383;</div>
+                  <div onClick={updateGameResult} style={{ cursor: 'pointer', margin: '0 8px' }}>&#127383;</div>
                   <div style={{ cursor: 'pointer', margin: '0 8px' }}>&#128465;</div>
                 </div>}
             </div>
