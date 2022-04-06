@@ -30,6 +30,11 @@ const Top = () => {
                                     <div>Home</div>
                                 </s.Button>
                             </Link>
+                            <Link to={Paths.RESULTS}>
+                                <s.Button pressed={location.pathname === Paths.RESULTS}>
+                                    <div>Results</div>
+                                </s.Button>
+                            </Link>
                             <Link to={Paths.RULES}>
                                 <s.Button pressed={location.pathname === Paths.RULES}>
                                     <div>Rules</div>

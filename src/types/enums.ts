@@ -3,7 +3,8 @@ export enum Paths {
     RULES = '/rules',
     ADMIN = '/admin',
     PASSWORD = '/password',
-    TEAMS = '/teams'
+    TEAMS = '/teams',
+    RESULTS = '/results'
 }
 
 export enum GameStatus {

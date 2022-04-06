@@ -5,6 +5,7 @@ import Password from "./components/Password";
 import Rules from "./components/Rules";
 import Teams from "./components/Teams";
 import { Paths } from './types/enums'
+import Results from "./components/Results";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path={Paths.RULES} element={<Rules />} />
         <Route path={process.env.REACT_APP_adminRoute} element={<Admin />} />
         <Route path={Paths.TEAMS} element={<Teams />} />
+        <Route path={Paths.RESULTS} element={<Results />} />
       </Routes>
     </Router >
   );

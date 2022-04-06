@@ -53,11 +53,11 @@ margin: 0 1rem;
 `;
 
 export const ButtonBox = styled(s.Frame)`
-margin: 0 80px;
+margin: 0 32px;
 display: flex;
 justify-content: space-between;
 align-items: center;
-padding: 12px 16px;
+padding: 12px 8px;
 `;
 
 export const Button = styled(s.Button)`
