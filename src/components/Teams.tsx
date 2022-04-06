@@ -1,4 +1,4 @@
-import { useGetTeams } from "../hooks/api/useApi";
+import { useGetTeamsAlph } from "../hooks/api/useApi";
 import { TEAMS_CONSTANTS } from "../types/constant/copy";
 import Footer from "./footer/Footer"
 import Header from "./header/Header"
@@ -7,7 +7,7 @@ import * as s from "./Teams.styles";
 
 const Teams = () => {
 
-    const { data: teams } = useGetTeams()
+    const { data: teams } = useGetTeamsAlph()
 
     return (
         <s.Main>

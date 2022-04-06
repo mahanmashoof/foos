@@ -35,14 +35,14 @@ const Top = () => {
                                     <div>Results</div>
                                 </s.Button>
                             </Link>
-                            <Link to={Paths.RULES}>
-                                <s.Button pressed={location.pathname === Paths.RULES}>
-                                    <div>Rules</div>
-                                </s.Button>
-                            </Link>
                             <Link to={Paths.TEAMS}>
                                 <s.Button pressed={location.pathname === Paths.TEAMS}>
                                     <div>Teams</div>
+                                </s.Button>
+                            </Link>
+                            <Link to={Paths.RULES}>
+                                <s.Button pressed={location.pathname === Paths.RULES}>
+                                    <div>Rules</div>
                                 </s.Button>
                             </Link>
                         </s.ButtonBox>

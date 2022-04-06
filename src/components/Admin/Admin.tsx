@@ -2,7 +2,7 @@ import db from "../../firebase";
 import { setDoc, doc, deleteDoc, updateDoc, arrayUnion } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { countriesDropdown, groupsDropdown, playersDropdown, booleanDropdown } from "../../helpers/Dropdown";
-import { useGetGames, useGetTeams } from "../../hooks/api/useApi";
+import { useGetGames, useGetTeamsAlph } from "../../hooks/api/useApi";
 import { APITeam } from "../../models/api/APIGroups";
 import { GroupInfo } from "../../types/types";
 import { GameResult, GameStatus } from "../../types/enums";
@@ -42,7 +42,7 @@ const Admin = () => {
   };
   // ---
 
-  const { data: teams } = useGetTeams()
+  const { data: teams } = useGetTeamsAlph()
 
   const numberOfGamesPerGroup = (group: APITeam[]) => {
     return group && group.length > 0 ? (group.length - 1) * group.length / 2 : 0

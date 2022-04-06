@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import firebase from "../../firebase";
 import { APIGame, APITeam } from "../../models/api/APIGroups";
 
-const allTeams = query(
+const allTeamsAlph = query(
     collection(firebase, 'teams'),
     orderBy('name'),
 )
@@ -13,10 +13,10 @@ const allGames = query(
     orderBy('group'),
 )
 
-export const useGetTeams = () => {
+export const useGetTeamsAlph = () => {
     const [data, setData] = useState<APITeam[]>([])
     useEffect(() => {
-        onSnapshot(allTeams, (querySnapshot) => {
+        onSnapshot(allTeamsAlph, (querySnapshot) => {
             let allTeams: APITeam[] = []
             querySnapshot.forEach((doc) => {
                 const teams = doc.data() as APITeam;
