@@ -1,11 +1,11 @@
 import db from "../../firebase";
-import { setDoc, doc, deleteDoc, collection, addDoc, updateDoc } from "firebase/firestore";
+import { setDoc, doc, deleteDoc, updateDoc, arrayUnion } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { countriesDropdown, groupsDropdown, playersDropdown, booleanDropdown } from "../../helpers/Dropdown";
 import { useGetGames, useGetTeams } from "../../hooks/api/useApi";
 import { APITeam } from "../../models/api/APIGroups";
 import { GroupInfo } from "../../types/types";
-import { GameStatus } from "../../types/enums";
+import { GameResult, GameStatus } from "../../types/enums";
 import { fiveTeamsGroup, fourTeamsGroup, threeTeamsGroup } from "../../helpers/GroupGames";
 
 const Admin = () => {
@@ -129,26 +129,51 @@ const Admin = () => {
 
   //update game result
   const updateGameResult = async () => {
-    await updateDoc(doc(db, 'games', `${homeTeam}-${awayTeam}`), {
-      status: GameStatus.FINISHED,
-      team1: {
-        name: homeTeam,
-        flagUrl: `flags/${homeTeam}.png`,
-        goals: homeScore,
-      },
-      team2: {
-        name: awayTeam,
-        flagUrl: `flags/${awayTeam}.png`,
-        goals: awayScore,
-      },
-    })
-      .then(() => alert('Result updated'))
-      .catch((err) => alert(err.message))
+    if (window.confirm(`The game will be marked as finished (${homeTeam} ${homeScore}-${awayScore} ${awayTeam}), continue?`)) {
+      await updateDoc(doc(db, 'games', `${homeTeam}-${awayTeam}`), {
+        status: GameStatus.FINISHED,
+        team1: {
+          name: homeTeam,
+          flagUrl: `flags/${homeTeam}.png`,
+          goals: homeScore,
+        },
+        team2: {
+          name: awayTeam,
+          flagUrl: `flags/${awayTeam}.png`,
+          goals: awayScore,
+        },
+      })
+        .then(() => { alert('Result updated'); window.location.reload() })
+        .catch((err) => alert(err.message))
+    }
   }
 
   //update home team result
+  const addScoreHomeTeam = async () => {
+    await updateDoc(doc(db, 'teams', homeTeam), {
+      results: arrayUnion({
+        opponent: awayTeam,
+        gm: homeScore,
+        ga: awayScore,
+        gd: homeScore - awayScore,
+        result: homeScore > awayScore ? GameResult.WIN : GameResult.DEFEAT,
+      }),
+    })
+  }
+
   //update away team result
-  //delete game
+  const addScoreAwayTeam = async () => {
+    await updateDoc(doc(db, 'teams', awayTeam), {
+      results: arrayUnion({
+        opponent: homeTeam,
+        gm: awayScore,
+        ga: homeScore,
+        gd: awayScore - homeScore,
+        result: awayScore > homeScore ? GameResult.WIN : GameResult.DEFEAT,
+      }),
+    })
+  }
+  //reset game
 
   return (
     <div>
@@ -223,14 +248,16 @@ const Admin = () => {
       {games &&
         <div>
           {games.map((game, i) => (
-            <div key={i} style={{ display: 'flex', justifyContent: 'space-around', margin: '1rem 0' }}>
+            <div key={i} style={{ display: 'flex', justifyContent: 'space-around', margin: '1rem 0', backgroundColor: game.status === 1 ? 'lightgray' : 'none' }}>
               <div>{game.team1.name}</div>
-              <input type='number' onChange={(e) => setHomeScore(e.target.valueAsNumber)} />
+              {editResult === 'Yes' && homeTeam === game.team1.name && awayTeam === game.team2.name && <input type='number' onChange={(e) => setHomeScore(e.target.valueAsNumber)} />}
+              <div>({game.team1.goals})</div>
               <div>group {game.group}</div>
-              <input type='number' onChange={(e) => setAwayScore(e.target.valueAsNumber)} />
+              <div>({game.team2.goals})</div>
+              {editResult === 'Yes' && homeTeam === game.team1.name && awayTeam === game.team2.name && <input type='number' onChange={(e) => setAwayScore(e.target.valueAsNumber)} />}
               <div>{game.team2.name}</div>
               <div>
-                <label htmlFor="edit">Edit result:</label>
+                <label htmlFor="edit">Edit result: </label>
                 <select id="edit" onChange={(e) => { setEditResult(e.target.value); setHomeTeam(game.team1.name); setAwayTeam(game.team2.name) }}>
                   {booleanDropdown.map((option, i) => (
                     <option key={i} value={option}>
@@ -241,7 +268,7 @@ const Admin = () => {
               </div>
               {editResult === 'Yes' && homeTeam === game.team1.name && awayTeam === game.team2.name &&
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
-                  <div onClick={updateGameResult} style={{ cursor: 'pointer', margin: '0 8px' }}>&#127383;</div>
+                  <div onClick={() => { updateGameResult(); addScoreHomeTeam(); addScoreAwayTeam(); setEditResult('No') }} style={{ cursor: 'pointer', margin: '0 8px' }}>&#127383;</div>
                   <div style={{ cursor: 'pointer', margin: '0 8px' }}>&#128465;</div>
                 </div>}
             </div>
