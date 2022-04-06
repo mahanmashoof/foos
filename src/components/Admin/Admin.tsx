@@ -143,7 +143,7 @@ const Admin = () => {
           goals: awayScore,
         },
       })
-        .then(() => { alert('Result updated'); window.location.reload() })
+        .then(() => alert('Result updated'))
         .catch((err) => alert(err.message))
     }
   }
@@ -173,7 +173,6 @@ const Admin = () => {
       }),
     })
   }
-  //reset game
 
   return (
     <div>
@@ -269,7 +268,6 @@ const Admin = () => {
               {editResult === 'Yes' && homeTeam === game.team1.name && awayTeam === game.team2.name &&
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                   <div onClick={() => { updateGameResult(); addScoreHomeTeam(); addScoreAwayTeam(); setEditResult('No') }} style={{ cursor: 'pointer', margin: '0 8px' }}>&#127383;</div>
-                  <div style={{ cursor: 'pointer', margin: '0 8px' }}>&#128465;</div>
                 </div>}
             </div>
           ))
