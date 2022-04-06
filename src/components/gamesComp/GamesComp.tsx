@@ -1,9 +1,8 @@
 const GamesComp = () => {
     return (
         <div style={{ display: 'flex' }}>
+            <img alt='...' src="flags/argentina.png" />
             <div>team1</div>
-            <input type='number' />
-            <div style={{ cursor: 'pointer' }}>&#128465;</div>
         </div>
     )
 }

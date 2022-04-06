@@ -46,6 +46,15 @@ const Results = () => {
                             ))
                             }
                         </div>
+                        <s.FrameResults>
+                            <s.FrameInnerResults>
+                                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                    <s.TextResults>country</s.TextResults>
+                                    <s.TextResults>score</s.TextResults>
+                                    <s.TextResults>country</s.TextResults>
+                                </div>
+                            </s.FrameInnerResults>
+                        </s.FrameResults>
                     </s.FrameInnerMain>
                 </s.FrameMain>
             </s.Content>

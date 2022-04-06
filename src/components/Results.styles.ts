@@ -108,3 +108,20 @@ font-weight: 400;
 font-family: 'Queen of Camelot';
 letter-spacing: -0.02em;
 `;
+
+export const FrameResults = styled(s.Frame)``;
+
+export const FrameInnerResults = styled(s.FrameInner)`
+  background-color: #0200a4;
+  padding: 20px;
+  `;
+
+export const TextResults = styled.div`
+font-size: 20px;
+line-height: 36px;
+color: #ffffff;
+font-style: italic;
+font-weight: 400;
+font-family: 'Queen of Camelot';
+letter-spacing: -0.02em;
+`;

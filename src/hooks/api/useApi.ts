@@ -8,11 +8,6 @@ const allTeamsAlph = query(
     orderBy('name'),
 )
 
-const allTeamsGroup = query(
-    collection(firebase, 'teams'),
-    orderBy('group'),
-)
-
 const allGames = query(
     collection(firebase, 'games'),
     orderBy('group'),
@@ -30,23 +25,6 @@ export const useGetTeamsAlph = () => {
             setData(allTeams)
         })
     }, [])
-    return { data }
-}
-
-export const useGetTeamsGroup = (groupLetter: string) => {
-    const [data, setData] = useState<APITeam[]>([])
-    useEffect(() => {
-        onSnapshot(allTeamsGroup, (querySnapshot) => {
-            let allTeams: APITeam[] = []
-            querySnapshot.forEach((doc) => {
-                const teams = doc.data() as APITeam;
-                if (teams.group === groupLetter) {
-                    allTeams.push(teams)
-                }
-            });
-            setData(allTeams)
-        })
-    }, [groupLetter])
     return { data }
 }
 
