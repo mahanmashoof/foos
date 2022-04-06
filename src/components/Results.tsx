@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { groupsDropdown } from "../helpers/Dropdown";
-import { useGetGames } from "../hooks/api/useApi";
+import { useGetTeamsAlph } from "../hooks/api/useApi";
 import Footer from "./footer/Footer"
 import Header from "./header/Header"
 import * as s from "./Results.styles";
@@ -7,7 +8,9 @@ import * as s from "./Results.styles";
 const Results = () => {
     const groupsArr = groupsDropdown.slice(1)
 
-    const { data: games } = useGetGames()
+    const { data: teams } = useGetTeamsAlph()
+    const [clickedGroup, setClickedGroup] = useState('A')
+    const currentGroup = teams.filter(team => team.group === clickedGroup)
 
     return (
         <s.Main>
@@ -35,7 +38,7 @@ const Results = () => {
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '32px' }}>
                             {groupsArr.map((group, i) => (
-                                <s.FrameSmallButton key={i}>
+                                <s.FrameSmallButton key={i} onClick={() => { setClickedGroup(group) }}>
                                     <s.FrameInnerSmallButton>
                                         <s.TextSmallButton>Group {group}</s.TextSmallButton>
                                     </s.FrameInnerSmallButton>
