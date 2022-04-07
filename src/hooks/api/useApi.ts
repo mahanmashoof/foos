@@ -10,7 +10,7 @@ const allTeamsAlph = query(
 
 const allGames = query(
     collection(firebase, 'games'),
-    orderBy('group'),
+    orderBy('status', "desc"),
 )
 
 export const useGetTeamsAlph = () => {

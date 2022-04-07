@@ -25,7 +25,10 @@ const GamesComp = (props: GameResult) => {
                 <s.Text>{adjustTeamName(props.homeTeam)}</s.Text>
             </div>
             <div>
-                <s.Text>{props.homeScore} - {props.awayScore}</s.Text>
+                {props.homeScore + props.awayScore === 0 ?
+                    <s.Text>TBD</s.Text> :
+                    <s.Text>{props.homeScore} - {props.awayScore}</s.Text>
+                }
             </div>
             <div style={{ display: 'flex', alignItems: 'center', width: '30%', justifyContent: 'end' }}>
                 <s.Text>{adjustTeamName(props.awayTeam)}</s.Text>
