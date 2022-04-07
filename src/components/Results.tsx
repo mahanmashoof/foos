@@ -9,6 +9,8 @@ import * as s from "./Results.styles";
 const Results = () => {
     const groupsArr = groupsDropdown.slice(1)
     const [clickedGroup, setClickedGroup] = useState('A')
+    const resultChoices = { results: 'results', table: 'table' }
+    const [clickedResult, setClickedResult] = useState(resultChoices.results)
 
     const { data: teams } = useGetTeamsAlph()
     const currentGroupTeams = teams.filter(team => team.group === clickedGroup)
@@ -29,14 +31,18 @@ const Results = () => {
                 <s.FrameMain>
                     <s.FrameInnerMain>
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '24px' }}>
-                            <s.FrameBigButton>
+                            <s.FrameBigButton onClick={() => setClickedResult(resultChoices.results)}>
                                 <s.FrameInnerBigButton>
-                                    <s.TextBigButton>results</s.TextBigButton>
+                                    <s.TextBigButton activeButton={clickedResult === resultChoices.results} >
+                                        {resultChoices.results}
+                                    </s.TextBigButton>
                                 </s.FrameInnerBigButton>
                             </s.FrameBigButton>
-                            <s.FrameBigButton>
+                            <s.FrameBigButton onClick={() => setClickedResult(resultChoices.table)} >
                                 <s.FrameInnerBigButton>
-                                    <s.TextBigButton>table</s.TextBigButton>
+                                    <s.TextBigButton activeButton={clickedResult === resultChoices.table}>
+                                        {resultChoices.table}
+                                    </s.TextBigButton>
                                 </s.FrameInnerBigButton>
                             </s.FrameBigButton>
                         </div>
@@ -50,33 +56,35 @@ const Results = () => {
                             ))
                             }
                         </div>
-                        <s.FrameResults>
-                            <s.FrameInnerResults>
-                                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                    <s.TextResults>country</s.TextResults>
-                                    <s.TextResults>score</s.TextResults>
-                                    <s.TextResults>country</s.TextResults>
-                                </div>
-                                <s.HeadingLine />
-                                {teams && currentGroupGames.map((game, i) => (
-                                    <GamesComp
-                                        key={i}
-                                        homeFlagUrl={game.team1.flagUrl}
-                                        homeTeam={game.team1.name}
-                                        homeScore={game.team1.goals}
-                                        awayScore={game.team2.goals}
-                                        awayTeam={game.team2.name}
-                                        awayFlagUrl={game.team2.flagUrl}
-                                    />
-                                ))
-                                }
-                            </s.FrameInnerResults>
-                        </s.FrameResults>
-                        <s.FrameResults>
-                            <s.FrameInnerResults>
-                                tables go here
-                            </s.FrameInnerResults>
-                        </s.FrameResults>
+                        {clickedResult === resultChoices.results &&
+                            <s.FrameResults>
+                                <s.FrameInnerResults>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                        <s.TextResults>country</s.TextResults>
+                                        <s.TextResults>score</s.TextResults>
+                                        <s.TextResults>country</s.TextResults>
+                                    </div>
+                                    <s.HeadingLine />
+                                    {teams && currentGroupGames.map((game, i) => (
+                                        <GamesComp
+                                            key={i}
+                                            homeFlagUrl={game.team1.flagUrl}
+                                            homeTeam={game.team1.name}
+                                            homeScore={game.team1.goals}
+                                            awayScore={game.team2.goals}
+                                            awayTeam={game.team2.name}
+                                            awayFlagUrl={game.team2.flagUrl}
+                                        />
+                                    ))
+                                    }
+                                </s.FrameInnerResults>
+                            </s.FrameResults>}
+                        {clickedResult === resultChoices.table &&
+                            <s.FrameResults>
+                                <s.FrameInnerResults>
+                                    tables go here
+                                </s.FrameInnerResults>
+                            </s.FrameResults>}
                     </s.FrameInnerMain>
                 </s.FrameMain>
             </s.Content>
