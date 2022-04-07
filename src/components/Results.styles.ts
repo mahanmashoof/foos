@@ -134,4 +134,9 @@ letter-spacing: -0.02em;
 export const HeadingLine = styled.hr`
   border-top:  2px solid #ffffff;
   margin: 16px 0 24px;
+  `;
+
+export const TableExplanation = styled(TextResults)`
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
 `;

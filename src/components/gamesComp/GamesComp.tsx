@@ -1,3 +1,4 @@
+import { adjustTeamName } from '../../helpers/GroupGames'
 import * as s from './GamesComp.styles'
 
 interface GameResult {
@@ -10,13 +11,6 @@ interface GameResult {
 }
 
 const GamesComp = (props: GameResult) => {
-    const adjustTeamName = (team: string) => {
-        if (team === 'usa') {
-            return team.toUpperCase()
-        } else {
-            return team[0].toUpperCase() + team.slice(1)
-        }
-    }
 
     return (
         <s.Main>

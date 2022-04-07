@@ -3,6 +3,7 @@ import { groupsDropdown } from "../helpers/Dropdown";
 import { useGetGames, useGetTeamsAlph } from "../hooks/api/useApi";
 import Footer from "./footer/Footer"
 import GamesComp from "./gamesComp/GamesComp";
+import TablesComp from "./gamesComp/TablesComp";
 import Header from "./header/Header"
 import * as s from "./Results.styles";
 
@@ -82,7 +83,22 @@ const Results = () => {
                         {clickedResult === resultChoices.table &&
                             <s.FrameResults>
                                 <s.FrameInnerResults>
-                                    tables go here
+                                    <div style={{ display: 'flex' }}>
+                                        <s.TextResults>position</s.TextResults>
+                                        <s.TextResults style={{ marginLeft: '72px' }}>team</s.TextResults>
+                                        <s.TextResults style={{ marginLeft: '140px' }}>won</s.TextResults>
+                                        <s.TextResults style={{ marginLeft: '40px' }}>lost</s.TextResults>
+                                        <s.TextResults style={{ marginLeft: '40px' }}>goals for</s.TextResults>
+                                        <s.TextResults style={{ marginLeft: '40px' }}>goals against</s.TextResults>
+                                        <s.TextResults style={{ marginLeft: '40px' }}>goal difference</s.TextResults>
+                                        <s.TextResults style={{ marginLeft: '130px' }}>points</s.TextResults>
+                                    </div>
+                                    <s.HeadingLine />
+                                    <TablesComp />
+                                    <TablesComp />
+                                    <TablesComp />
+                                    <TablesComp />
+                                    <s.TableExplanation>Countries of Rank 1-2 will advance to knockout stage</s.TableExplanation>
                                 </s.FrameInnerResults>
                             </s.FrameResults>}
                     </s.FrameInnerMain>
