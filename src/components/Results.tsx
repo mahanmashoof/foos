@@ -72,6 +72,11 @@ const Results = () => {
                                 }
                             </s.FrameInnerResults>
                         </s.FrameResults>
+                        <s.FrameResults>
+                            <s.FrameInnerResults>
+                                tables go here
+                            </s.FrameInnerResults>
+                        </s.FrameResults>
                     </s.FrameInnerMain>
                 </s.FrameMain>
             </s.Content>
