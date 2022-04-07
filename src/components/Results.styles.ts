@@ -125,3 +125,8 @@ font-weight: 400;
 font-family: 'Queen of Camelot';
 letter-spacing: -0.02em;
 `;
+
+export const HeadingLine = styled.hr`
+  border-top:  2px solid #ffffff;
+  margin: 16px 0 24px;
+`;

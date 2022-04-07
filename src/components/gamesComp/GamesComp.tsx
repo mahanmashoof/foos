@@ -1,9 +1,20 @@
+import * as s from './GamesComp.styles'
+
 const GamesComp = () => {
     return (
-        <div style={{ display: 'flex' }}>
-            <img alt='...' src="flags/argentina.png" />
-            <div>team1</div>
-        </div>
+        <s.Main>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+                <s.Flag alt='...' src="flags/argentina.png" />
+                <s.Text>team1</s.Text>
+            </div>
+            <div>
+                <s.Text>1 - 2</s.Text>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+                <s.Text>team2</s.Text>
+                <s.Flag alt='...' src="flags/australia.png" />
+            </div>
+        </s.Main>
     )
 }
 

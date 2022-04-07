@@ -2,6 +2,7 @@ import { useState } from "react";
 import { groupsDropdown } from "../helpers/Dropdown";
 import { useGetTeamsAlph } from "../hooks/api/useApi";
 import Footer from "./footer/Footer"
+import GamesComp from "./gamesComp/GamesComp";
 import Header from "./header/Header"
 import * as s from "./Results.styles";
 
@@ -53,6 +54,10 @@ const Results = () => {
                                     <s.TextResults>score</s.TextResults>
                                     <s.TextResults>country</s.TextResults>
                                 </div>
+                                <s.HeadingLine />
+                                <GamesComp />
+                                <GamesComp />
+                                <GamesComp />
                             </s.FrameInnerResults>
                         </s.FrameResults>
                     </s.FrameInnerMain>
