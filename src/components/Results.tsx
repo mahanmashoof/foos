@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { groupsDropdown } from "../helpers/Dropdown";
-import { useGetTeamsAlph } from "../hooks/api/useApi";
+import { useGetGames, useGetTeamsAlph } from "../hooks/api/useApi";
 import Footer from "./footer/Footer"
 import GamesComp from "./gamesComp/GamesComp";
 import Header from "./header/Header"
@@ -8,10 +8,13 @@ import * as s from "./Results.styles";
 
 const Results = () => {
     const groupsArr = groupsDropdown.slice(1)
+    const [clickedGroup, setClickedGroup] = useState('A')
 
     const { data: teams } = useGetTeamsAlph()
-    const [clickedGroup, setClickedGroup] = useState('A')
-    const currentGroup = teams.filter(team => team.group === clickedGroup)
+    const currentGroupTeams = teams.filter(team => team.group === clickedGroup)
+
+    const { data: games } = useGetGames()
+    const currentGroupGames = games.filter(game => game.group === clickedGroup)
 
     return (
         <s.Main>
@@ -55,9 +58,18 @@ const Results = () => {
                                     <s.TextResults>country</s.TextResults>
                                 </div>
                                 <s.HeadingLine />
-                                <GamesComp />
-                                <GamesComp />
-                                <GamesComp />
+                                {teams && currentGroupGames.map((game, i) => (
+                                    <GamesComp
+                                        key={i}
+                                        homeFlagUrl={game.team1.flagUrl}
+                                        homeTeam={game.team1.name}
+                                        homeScore={game.team1.goals}
+                                        awayScore={game.team2.goals}
+                                        awayTeam={game.team2.name}
+                                        awayFlagUrl={game.team2.flagUrl}
+                                    />
+                                ))
+                                }
                             </s.FrameInnerResults>
                         </s.FrameResults>
                     </s.FrameInnerMain>
