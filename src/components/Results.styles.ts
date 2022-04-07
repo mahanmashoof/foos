@@ -98,11 +98,15 @@ export const FrameInnerSmallButton = styled(s.FrameInner)`
   text-align: center;
   `;
 
-export const TextSmallButton = styled.div`
+interface ActiveGroup {
+  activeButton: boolean;
+}
+
+export const TextSmallButton = styled.div<ActiveGroup>`
 font-size: 20px;
 line-height: 36px;
-color: #ffffff;
-text-decoration: none;
+color: ${(props) => (props.activeButton ? '#EF5DA8' : '#ffffff')};
+text-decoration: ${(props) => (props.activeButton ? 'underline' : 'none')};
 font-style: italic;
 font-weight: 400;
 font-family: 'Queen of Camelot';

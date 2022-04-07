@@ -44,7 +44,7 @@ const Results = () => {
                             {groupsArr.map((group, i) => (
                                 <s.FrameSmallButton key={i} onClick={() => { setClickedGroup(group) }}>
                                     <s.FrameInnerSmallButton>
-                                        <s.TextSmallButton>Group {group}</s.TextSmallButton>
+                                        <s.TextSmallButton activeButton={clickedGroup === group} >Group {group}</s.TextSmallButton>
                                     </s.FrameInnerSmallButton>
                                 </s.FrameSmallButton>
                             ))
