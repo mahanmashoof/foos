@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { groupsDropdown } from "../helpers/Dropdown";
+import { adjustTeamName } from "../helpers/GroupGames";
 import { useGetGames, useGetTeamsAlph } from "../hooks/api/useApi";
+import { GameResult } from "../models/api/APIGroups";
 import Footer from "./footer/Footer"
 import GamesComp from "./gamesComp/GamesComp";
 import TablesComp from "./gamesComp/TablesComp";
@@ -18,6 +20,30 @@ const Results = () => {
 
     const { data: games } = useGetGames()
     const currentGroupGames = games.filter(game => game.group === clickedGroup)
+
+    const getGamesWon = (resultsArr: GameResult[]) => {
+        return resultsArr ? resultsArr.map((result) => (result.result === 3 ? 1 as number : 0 as number)).reduce((a, b) => a + b) : 0
+    }
+
+    const getGamesLost = (resultsArr: GameResult[]) => {
+        return resultsArr ? resultsArr.map((result) => (result.result === 0 ? 1 as number : 0 as number)).reduce((a, b) => a + b) : 0
+    }
+
+    const getGoalsFor = (resultsArr: GameResult[]) => {
+        return resultsArr ? resultsArr.map((result) => (result.gm)).reduce((a, b) => a + b) : 0
+    }
+
+    const getGoalsAgainst = (resultsArr: GameResult[]) => {
+        return resultsArr ? resultsArr.map((result) => (result.ga)).reduce((a, b) => a + b) : 0
+    }
+
+    const getGoalDiff = (resultsArr: GameResult[]) => {
+        return resultsArr ? resultsArr.map((result) => (result.gd)).reduce((a, b) => a + b) : 0
+    }
+
+    const getPoints = (resultsArr: GameResult[]) => {
+        return resultsArr ? resultsArr.map((result) => (result.result)).reduce((a, b) => a + b) : 0
+    }
 
     return (
         <s.Main>
@@ -99,13 +125,13 @@ const Results = () => {
                                             key={i}
                                             position={i + 1}
                                             flagUrl={team.flagUrl}
-                                            team={team.name}
-                                            gamesWon={0}
-                                            gamesLost={0}
-                                            goalsFor={0}
-                                            goalsAgainst={0}
-                                            goalDiff={0}
-                                            points={0}
+                                            team={adjustTeamName(team.name)}
+                                            gamesWon={getGamesWon(team.results)}
+                                            gamesLost={getGamesLost(team.results)}
+                                            goalsFor={getGoalsFor(team.results)}
+                                            goalsAgainst={getGoalsAgainst(team.results)}
+                                            goalDiff={getGoalDiff(team.results)}
+                                            points={getPoints(team.results)}
                                         />
                                     ))
                                     }

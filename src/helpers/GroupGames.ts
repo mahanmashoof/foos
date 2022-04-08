@@ -29,6 +29,9 @@ export const fiveTeamsGroup = [
 export const adjustTeamName = (team: string) => {
     if (team === 'usa') {
         return team.toUpperCase()
+    } else if (team.includes(' ')) {
+        const [a, b] = team.split(' ')
+        return a[0].toUpperCase() + a.slice(1) + ' ' + b[0].toUpperCase() + b.slice(1)
     } else {
         return team[0].toUpperCase() + team.slice(1)
     }
