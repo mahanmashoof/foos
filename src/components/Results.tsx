@@ -16,7 +16,7 @@ const Results = () => {
     const [clickedResult, setClickedResult] = useState(resultChoices.results)
 
     const { data: teams } = useGetTeamsAlph()
-    //const currentGroupTeams = teams.filter(team => team.group === clickedGroup)
+    const currentGroupTeams = teams.filter(team => team.group === clickedGroup)
 
     const { data: games } = useGetGames()
     const currentGroupGames = games.filter(game => game.group === clickedGroup)
