@@ -3,7 +3,6 @@ import Header from "./header/Header";
 import ReactPlayer from 'react-player'
 import SloganComponent from "./sloganComp/SloganComp";
 import { HOME_CONSTANTS } from "../types/constant/copy";
-import foosPlay from '../img/foosPlay.webp'
 import DateComp from "./datesComp/DateComp";
 import GossipComp from "./gossipComp/GossipComp";
 import Footer from "./footer/Footer";
@@ -75,12 +74,12 @@ const Home = () => {
         </s.TextFrame>
         <s.TextFrameWide>
           <s.TextPicBox>
-            <img alt='' src={foosPlay} style={{ width: '50%', objectFit: 'cover' }} />
+            <ReactPlayer url='videos/groups-draw.mp4' width="100%" controls={true} />
             <div>
-              <s.TextBox style={{ border: 'none', height: 'fit-content', textAlign: 'left' }}>{HOME_CONSTANTS.THIRD_BOX.P1}</s.TextBox>
-              <s.TextBox style={{ border: 'none', height: 'fit-content', textAlign: 'left' }}>{HOME_CONSTANTS.THIRD_BOX.P2}</s.TextBox>
-              <s.TextBox style={{ border: 'none', height: 'fit-content', textAlign: 'left' }}>{HOME_CONSTANTS.THIRD_BOX.P3}</s.TextBox>
-              <s.TextBox style={{ border: 'none', height: 'fit-content', textAlign: 'left' }}>{HOME_CONSTANTS.THIRD_BOX.P4}</s.TextBox>
+              <s.TextBoxWithVideo style={{ border: 'none', height: 'fit-content', textAlign: 'left' }}>{HOME_CONSTANTS.THIRD_BOX.P1}</s.TextBoxWithVideo>
+              <s.TextBoxWithVideo style={{ border: 'none', height: 'fit-content', textAlign: 'left' }}>{HOME_CONSTANTS.THIRD_BOX.P2}</s.TextBoxWithVideo>
+              <s.TextBoxWithVideo style={{ border: 'none', height: 'fit-content', textAlign: 'left' }}>{HOME_CONSTANTS.THIRD_BOX.P3}</s.TextBoxWithVideo>
+              <s.TextBoxWithVideo style={{ border: 'none', height: 'fit-content', textAlign: 'left' }}>{HOME_CONSTANTS.THIRD_BOX.P4}</s.TextBoxWithVideo>
             </div>
           </s.TextPicBox>
         </s.TextFrameWide>

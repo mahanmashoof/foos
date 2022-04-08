@@ -117,7 +117,7 @@ export const TextFrameWide = styled(TextFrame)`
 
 export const TextPicBox = styled(TextBox)`
   display: flex;
-  padding: 0 2px 2px 0;
+  padding: 0 2px 2px 12px;
 `;
 
 export const Heading = styled.div`
@@ -128,4 +128,8 @@ export const Heading = styled.div`
   color: #FFFFFF;
   text-shadow: 2px 4px 4px #0200A4;
   margin: 80px 0 0;
+`;
+
+export const TextBoxWithVideo = styled(TextBox)`
+  padding: 17px 20px;
 `;
