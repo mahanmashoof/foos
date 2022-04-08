@@ -22,11 +22,11 @@ const Results = () => {
     const currentGroupGames = games.filter(game => game.group === clickedGroup)
 
     const getGamesWon = (resultsArr: GameResult[]) => {
-        return resultsArr ? resultsArr.map((result) => (result.result === 3 ? 1 as number : 0 as number)).reduce((a, b) => a + b) : 0
+        return resultsArr ? resultsArr.map((result) => (result.result === 3 ? 1 : 0 as number)).reduce((a, b) => a + b) : 0
     }
 
     const getGamesLost = (resultsArr: GameResult[]) => {
-        return resultsArr ? resultsArr.map((result) => (result.result === 0 ? 1 as number : 0 as number)).reduce((a, b) => a + b) : 0
+        return resultsArr ? resultsArr.map((result) => (result.result === 0 ? 1 : 0 as number)).reduce((a, b) => a + b) : 0
     }
 
     const getGoalsFor = (resultsArr: GameResult[]) => {
@@ -44,6 +44,10 @@ const Results = () => {
     const getPoints = (resultsArr: GameResult[]) => {
         return resultsArr ? resultsArr.map((result) => (result.result)).reduce((a, b) => a + b) : 0
     }
+
+    currentGroupTeams
+        .sort((a, b) => getGoalDiff(b.results) - getGoalDiff(a.results))
+        .sort((a, b) => getPoints(b.results) - getPoints(a.results))
 
     return (
         <s.Main>
