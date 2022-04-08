@@ -73,11 +73,15 @@ export const FrameInnerBigButton = styled(s.FrameInner)`
   text-align: center;
   `;
 
-export const TextBigButton = styled.div`
+interface ActiveGroup {
+  activeButton: boolean;
+}
+
+export const TextBigButton = styled.div<ActiveGroup>`
 font-size: 32px;
 line-height: 42px;
-color: #ffffff;
-text-decoration: none;
+color: ${(props) => (props.activeButton ? '#EF5DA8' : '#ffffff')};
+text-decoration: ${(props) => (props.activeButton ? 'underline' : 'none')};
 font-style: italic;
 font-weight: 400;
 font-family: 'Queen of Camelot';
@@ -98,9 +102,6 @@ export const FrameInnerSmallButton = styled(s.FrameInner)`
   text-align: center;
   `;
 
-interface ActiveGroup {
-  activeButton: boolean;
-}
 
 export const TextSmallButton = styled.div<ActiveGroup>`
 font-size: 20px;
@@ -133,4 +134,9 @@ letter-spacing: -0.02em;
 export const HeadingLine = styled.hr`
   border-top:  2px solid #ffffff;
   margin: 16px 0 24px;
+  `;
+
+export const TableExplanation = styled(TextResults)`
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
 `;

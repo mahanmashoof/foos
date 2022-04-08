@@ -1,3 +1,11 @@
+export interface GameResult {
+    ga: number,
+    gd: number,
+    gm: number,
+    opponent: string,
+    result: number
+}
+
 export interface APITeam {
     flagUrl: string,
     group: string,
@@ -12,6 +20,7 @@ export interface APITeam {
             name: string,
         },
     }
+    results: GameResult[]
 }
 
 export interface APIGame {
