@@ -2,7 +2,8 @@ import { adjustTeamName } from '../../helpers/GroupGames'
 import * as s from './TablesComp.styles'
 
 interface TeamStats {
-    homeFlagUrl: string,
+    position: number,
+    flagUrl: string,
     team: string,
     gamesWon: number,
     gamesLost: number,
@@ -12,21 +13,21 @@ interface TeamStats {
     points: number,
 }
 
-const TablesComp = () => {
+const TablesComp = (props: TeamStats) => {
 
     return (
         <s.Main>
-            <s.PosText style={{ width: '108px' }}>#1</s.PosText>
+            <s.PosText style={{ width: '108px' }}>#{props.position}</s.PosText>
             <div style={{ display: 'flex', alignItems: 'center', width: '254px', justifyContent: 'start' }}>
-                <s.Flag alt='...' src='flags/brazil.png' />
-                <s.Text style={{ marginLeft: '32px' }}>{adjustTeamName('South x')}</s.Text>
+                <s.Flag alt='...' src={props.flagUrl} />
+                <s.Text style={{ marginLeft: '32px' }}>{adjustTeamName(props.team)}</s.Text>
             </div>
-            <s.Text style={{ width: '78px' }}>3</s.Text>
-            <s.Text style={{ width: '110px' }}>1</s.Text>
-            <s.Text style={{ width: '150px' }}>36</s.Text>
-            <s.Text style={{ width: '183px' }}>16</s.Text>
-            <s.Text style={{ width: '230px' }}>20</s.Text>
-            <s.Text style={{ width: '20px', textAlign: 'right' }}>19</s.Text>
+            <s.Text style={{ width: '78px' }}>{props.gamesWon}</s.Text>
+            <s.Text style={{ width: '110px' }}>{props.gamesLost}</s.Text>
+            <s.Text style={{ width: '150px' }}>{props.goalsFor}</s.Text>
+            <s.Text style={{ width: '183px' }}>{props.goalsAgainst}</s.Text>
+            <s.Text style={{ width: '230px' }}>{props.goalDiff}</s.Text>
+            <s.Text style={{ width: '20px', textAlign: 'right' }}>{props.points}</s.Text>
         </s.Main>
     )
 }

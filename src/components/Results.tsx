@@ -66,7 +66,7 @@ const Results = () => {
                                         <s.TextResults>country</s.TextResults>
                                     </div>
                                     <s.HeadingLine />
-                                    {teams && currentGroupGames.map((game, i) => (
+                                    {games && currentGroupGames.map((game, i) => (
                                         <GamesComp
                                             key={i}
                                             homeFlagUrl={game.team1.flagUrl}
@@ -94,10 +94,21 @@ const Results = () => {
                                         <s.TextResults style={{ marginLeft: '130px' }}>points</s.TextResults>
                                     </div>
                                     <s.HeadingLine />
-                                    <TablesComp />
-                                    <TablesComp />
-                                    <TablesComp />
-                                    <TablesComp />
+                                    {teams && currentGroupTeams.map((team, i) => (
+                                        <TablesComp
+                                            key={i}
+                                            position={i + 1}
+                                            flagUrl={team.flagUrl}
+                                            team={team.name}
+                                            gamesWon={0}
+                                            gamesLost={0}
+                                            goalsFor={0}
+                                            goalsAgainst={0}
+                                            goalDiff={0}
+                                            points={0}
+                                        />
+                                    ))
+                                    }
                                     <s.TableExplanation>Countries of Rank 1-2 will advance to knockout stage</s.TableExplanation>
                                 </s.FrameInnerResults>
                             </s.FrameResults>}
