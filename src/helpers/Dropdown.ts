@@ -53,7 +53,7 @@ export const countriesDropdown = [
   'brazil',
   'cameroon',
   'colombia',
-  'denemark',
+  'denmark',
   'egypt',
   'england',
   'france',
@@ -68,7 +68,7 @@ export const countriesDropdown = [
   'nigeria',
   'portugal',
   'south africa',
-  'south corea',
+  'south korea',
   'usa',
 ]
 
