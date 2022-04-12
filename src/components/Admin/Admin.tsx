@@ -156,7 +156,7 @@ const Admin = () => {
         gm: homeScore,
         ga: awayScore,
         gd: homeScore - awayScore,
-        result: homeScore > awayScore ? GameResult.WIN : GameResult.DEFEAT,
+        result: homeScore === 10 ? GameResult.WIN : homeScore === 9 ? GameResult.CLOSE_LOSS : GameResult.DEFEAT,
       }),
     })
   }
@@ -169,7 +169,7 @@ const Admin = () => {
         gm: awayScore,
         ga: homeScore,
         gd: awayScore - homeScore,
-        result: awayScore > homeScore ? GameResult.WIN : GameResult.DEFEAT,
+        result: awayScore === 10 ? GameResult.WIN : awayScore === 9 ? GameResult.CLOSE_LOSS : GameResult.DEFEAT,
       }),
     })
   }

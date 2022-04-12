@@ -46,6 +46,7 @@ const Results = () => {
     }
 
     currentGroupTeams
+        .sort((a, b) => getGoalsFor(b.results) - getGoalsFor(a.results))
         .sort((a, b) => getGoalDiff(b.results) - getGoalDiff(a.results))
         .sort((a, b) => getPoints(b.results) - getPoints(a.results))
 
