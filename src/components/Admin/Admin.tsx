@@ -69,6 +69,7 @@ const Admin = () => {
   // ---
 
   const { data: games } = useGetGames()
+  games.sort((a, b) => groupsDropdown.indexOf(a.group) - groupsDropdown.indexOf(b.group))
   const groupGamesDropdown = groupsDropdown.filter(x => !(games.map(team => (
     team.group
   )).filter((v, i, a) => a.indexOf(v) === i)).includes(x))
