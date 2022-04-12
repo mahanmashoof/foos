@@ -26,7 +26,7 @@ const Results = () => {
     }
 
     const getGamesLost = (resultsArr: GameResult[]) => {
-        return resultsArr ? resultsArr.map((result) => (result.result === 0 ? 1 : 0 as number)).reduce((a, b) => a + b) : 0
+        return resultsArr ? resultsArr.map((result) => (result.result === 0 || result.result === 1 ? 1 : 0 as number)).reduce((a, b) => a + b) : 0
     }
 
     const getGoalsFor = (resultsArr: GameResult[]) => {
