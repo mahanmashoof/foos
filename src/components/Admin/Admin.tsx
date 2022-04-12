@@ -1,5 +1,5 @@
 import db from "../../firebase";
-import { setDoc, doc, deleteDoc, updateDoc, arrayUnion } from "firebase/firestore";
+import { setDoc, doc, deleteDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { countriesDropdown, groupsDropdown, playersDropdown, booleanDropdown } from "../../helpers/Dropdown";
 import { useGetGames, useGetTeamsAlph } from "../../hooks/api/useApi";
@@ -123,6 +123,8 @@ const Admin = () => {
 
   const [homeScore, setHomeScore] = useState(0)
   const [awayScore, setAwayScore] = useState(0)
+  const [prevHomeScore, setPrevHomeScore] = useState(0)
+  const [prevAwayScore, setPrevAwayScore] = useState(0)
   const [homeTeam, setHomeTeam] = useState('')
   const [awayTeam, setAwayTeam] = useState('')
   const [editResult, setEditResult] = useState('No')
@@ -159,6 +161,15 @@ const Admin = () => {
         result: homeScore === 10 ? GameResult.WIN : homeScore === 9 ? GameResult.CLOSE_LOSS : GameResult.DEFEAT,
       }),
     })
+    await updateDoc(doc(db, 'teams', homeTeam), {
+      results: arrayRemove({
+        opponent: awayTeam,
+        gm: prevHomeScore,
+        ga: prevAwayScore,
+        gd: prevHomeScore - prevAwayScore,
+        result: prevHomeScore === 10 ? GameResult.WIN : prevHomeScore === 9 ? GameResult.CLOSE_LOSS : GameResult.DEFEAT,
+      }),
+    })
   }
 
   //update away team result
@@ -170,6 +181,15 @@ const Admin = () => {
         ga: homeScore,
         gd: awayScore - homeScore,
         result: awayScore === 10 ? GameResult.WIN : awayScore === 9 ? GameResult.CLOSE_LOSS : GameResult.DEFEAT,
+      }),
+    })
+    await updateDoc(doc(db, 'teams', awayTeam), {
+      results: arrayRemove({
+        opponent: homeTeam,
+        gm: prevAwayScore,
+        ga: prevHomeScore,
+        gd: prevAwayScore - prevHomeScore,
+        result: prevAwayScore === 10 ? GameResult.WIN : prevAwayScore === 9 ? GameResult.CLOSE_LOSS : GameResult.DEFEAT,
       }),
     })
   }
@@ -257,7 +277,13 @@ const Admin = () => {
               <div>{game.team2.name}</div>
               <div>
                 <label htmlFor="edit">Edit result: </label>
-                <select id="edit" onChange={(e) => { setEditResult(e.target.value); setHomeTeam(game.team1.name); setAwayTeam(game.team2.name) }}>
+                <select id="edit" onChange={(e) => {
+                  setEditResult(e.target.value);
+                  setHomeTeam(game.team1.name);
+                  setAwayTeam(game.team2.name);
+                  setPrevHomeScore(game.team1.goals);
+                  setPrevAwayScore(game.team2.goals)
+                }}>
                   {booleanDropdown.map((option, i) => (
                     <option key={i} value={option}>
                       {option}
