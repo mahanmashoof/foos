@@ -3,6 +3,10 @@ import * as s from '../Global/Global.styles'
 
 export const Frame = styled(s.Frame)`
 width: 426px;
+margin: 24px 40px 0 0;
+:nth-child(3n+3) {
+    margin-right: 0;
+}
 `;
 
 export const FrameInner = styled(s.FrameInner)`

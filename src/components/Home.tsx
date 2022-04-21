@@ -109,7 +109,7 @@ const Home = () => {
           <DateComp date={HOME_CONSTANTS.DATE3.date} heading={HOME_CONSTANTS.DATE3.heading} text={HOME_CONSTANTS.DATE3.text}></DateComp>
         </s.SloganRow>
         <s.Heading>GIVE ME THE LATEST GOSSIP!</s.Heading>
-        <s.SloganRow style={{ marginBottom: '0' }}>
+        <s.SloganRow>
           {news.map((article, i) => (
               <GossipComp
                 key={i}

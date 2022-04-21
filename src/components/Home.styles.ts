@@ -88,7 +88,7 @@ export const CountDownText = styled.div`
 
 export const SloganRow = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   margin: 40px 0 80px;
 `;
 
