@@ -132,4 +132,7 @@ export const Heading = styled.div`
 
 export const TextBoxWithVideo = styled(TextBox)`
   padding: 17px 20px;
+  border: none;
+  height: fit-content;
+  text-align: left;
 `;

@@ -8,7 +8,26 @@ import GossipComp from "./gossipComp/GossipComp";
 import Footer from "./footer/Footer";
 import { useCallback, useEffect, useState } from "react";
 
+interface news {
+  imgUrl: string,
+  heading: string,
+  text: string
+}
+
 const Home = () => {
+
+  const [news, setNews] = useState<news[]>([{ imgUrl: '', heading: '', text: '' }])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch(
+        'data/news.json',
+      );
+      const json = await res.json();
+      setNews(json);
+    };
+    fetchData();
+  }, [])
 
   const getTimeStamp = useCallback(() => {
     const start = new Date('2022-04-11T09:00')
@@ -76,10 +95,10 @@ const Home = () => {
           <s.TextPicBox>
             <ReactPlayer url='videos/groups-draw.mp4' width="100%" controls={true} />
             <div>
-              <s.TextBoxWithVideo style={{ border: 'none', height: 'fit-content', textAlign: 'left' }}>{HOME_CONSTANTS.THIRD_BOX.P1}</s.TextBoxWithVideo>
-              <s.TextBoxWithVideo style={{ border: 'none', height: 'fit-content', textAlign: 'left' }}>{HOME_CONSTANTS.THIRD_BOX.P2}</s.TextBoxWithVideo>
-              <s.TextBoxWithVideo style={{ border: 'none', height: 'fit-content', textAlign: 'left' }}>{HOME_CONSTANTS.THIRD_BOX.P3}</s.TextBoxWithVideo>
-              <s.TextBoxWithVideo style={{ border: 'none', height: 'fit-content', textAlign: 'left' }}>{HOME_CONSTANTS.THIRD_BOX.P4}</s.TextBoxWithVideo>
+              <s.TextBoxWithVideo>{HOME_CONSTANTS.THIRD_BOX.P1}</s.TextBoxWithVideo>
+              <s.TextBoxWithVideo>{HOME_CONSTANTS.THIRD_BOX.P2}</s.TextBoxWithVideo>
+              <s.TextBoxWithVideo>{HOME_CONSTANTS.THIRD_BOX.P3}</s.TextBoxWithVideo>
+              <s.TextBoxWithVideo>{HOME_CONSTANTS.THIRD_BOX.P4}</s.TextBoxWithVideo>
             </div>
           </s.TextPicBox>
         </s.TextFrameWide>
@@ -91,9 +110,14 @@ const Home = () => {
         </s.SloganRow>
         <s.Heading>GIVE ME THE LATEST GOSSIP!</s.Heading>
         <s.SloganRow style={{ marginBottom: '0' }}>
-          <GossipComp imgUrl='news-photos/björn-vad.png' heading={HOME_CONSTANTS.GOSSIP1.heading} text={HOME_CONSTANTS.GOSSIP1.text}></GossipComp>
-          <GossipComp imgUrl='news-photos/hwa-rang.png' heading={HOME_CONSTANTS.GOSSIP2.heading} text={HOME_CONSTANTS.GOSSIP2.text}></GossipComp>
-          <GossipComp imgUrl='news-photos/emelie.png' heading={HOME_CONSTANTS.GOSSIP3.heading} text={HOME_CONSTANTS.GOSSIP3.text}></GossipComp>
+          {news.map((article, i) => (
+              <GossipComp
+                key={i}
+                imgUrl={article.imgUrl}
+                heading={article.heading}
+                text={article.text} />
+            ))
+          }
         </s.SloganRow>
       </s.Content>
       <Footer />
