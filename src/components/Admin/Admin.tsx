@@ -1,5 +1,5 @@
 import db from "../../firebase";
-import { setDoc, doc, deleteDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
+import { setDoc, doc, deleteDoc, updateDoc, arrayUnion, arrayRemove, deleteField } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { countriesDropdown, groupsDropdown, playersDropdown, booleanDropdown } from "../../helpers/Dropdown";
 import { useGetGames, useGetTeamsAlph } from "../../hooks/api/useApi";
@@ -195,6 +195,70 @@ const Admin = () => {
     })
   }
 
+  //reset game result
+  const resetGameResult = async () => {
+    if (window.confirm(`This game will be reset, continue?`)) {
+      await updateDoc(doc(db, 'games', `${homeTeam}-${awayTeam}`), {
+        status: GameStatus.NOT_PLAYED,
+        team1: {
+          name: homeTeam,
+          flagUrl: `flags/${homeTeam}.png`,
+          goals: 0,
+        },
+        team2: {
+          name: awayTeam,
+          flagUrl: `flags/${awayTeam}.png`,
+          goals: 0,
+        },
+      })
+        .then(() => alert('Result updated'))
+        .catch((err) => alert(err.message))
+    }
+  }
+
+  const gamesPlayed = (currentTeam: string) => {
+    const teamObj = teams.filter(team => team.name === currentTeam)[0]
+    return teamObj.results ? teamObj.results.length : 0
+  }
+
+  //reset home team result
+  const resetScoreHomeTeam = async () => {
+    if(gamesPlayed(homeTeam) > 1) {
+      await updateDoc(doc(db, 'teams', homeTeam), {
+        results: arrayRemove({
+          opponent: awayTeam,
+          gm: prevHomeScore,
+          ga: prevAwayScore,
+          gd: prevHomeScore - prevAwayScore,
+          result: prevHomeScore === 10 ? GameResult.WIN : prevHomeScore === 9 ? GameResult.CLOSE_LOSS : GameResult.DEFEAT,
+        }),
+      })
+    } else {
+      await updateDoc(doc(db, 'teams', homeTeam), {
+        results: deleteField(),
+      })
+    }
+  }
+
+  //reset away team result
+  const resetScoreAwayTeam = async () => {
+    if(gamesPlayed(awayTeam) > 1) {
+      await updateDoc(doc(db, 'teams', awayTeam), {
+        results: arrayRemove({
+          opponent: homeTeam,
+          gm: prevAwayScore,
+          ga: prevHomeScore,
+          gd: prevAwayScore - prevHomeScore,
+          result: prevAwayScore === 10 ? GameResult.WIN : prevAwayScore === 9 ? GameResult.CLOSE_LOSS : GameResult.DEFEAT,
+        }),
+      })
+    } else {
+      await updateDoc(doc(db, 'teams', awayTeam), {
+        results: deleteField(),
+      })
+    }
+  }
+
   return (
     <div>
       <div id="create-team">
@@ -295,6 +359,10 @@ const Admin = () => {
               {editResult === 'Yes' && homeTeam === game.team1.name && awayTeam === game.team2.name &&
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                   <div onClick={() => { updateGameResult(); addScoreHomeTeam(); addScoreAwayTeam(); setEditResult('No') }} style={{ cursor: 'pointer', margin: '0 8px' }}>&#127383;</div>
+                </div>}
+              {game.status === 1 &&
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <div onClick={() => { resetGameResult(); resetScoreHomeTeam(); resetScoreAwayTeam() }} style={{ cursor: 'pointer', margin: '0 8px' }}>&#9842;</div>
                 </div>}
             </div>
           ))
