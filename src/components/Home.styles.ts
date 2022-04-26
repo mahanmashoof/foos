@@ -88,7 +88,7 @@ export const CountDownText = styled.div`
 
 export const SloganRow = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
   margin: 40px 0 80px;
 `;
 
@@ -135,4 +135,8 @@ export const TextBoxWithVideo = styled(TextBox)`
   border: none;
   height: fit-content;
   text-align: left;
+`;
+
+export const NewsRow = styled(SloganRow)`
+  flex-wrap: wrap;
 `;
