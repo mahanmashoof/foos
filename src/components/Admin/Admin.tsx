@@ -5,8 +5,9 @@ import { countriesDropdown, groupsDropdown, playersDropdown, booleanDropdown } f
 import { useGetGames, useGetTeamsAlph } from "../../hooks/api/useApi";
 import { APITeam } from "../../models/api/APIGroups";
 import { GroupInfo } from "../../types/types";
-import { GameResult, GameStatus } from "../../types/enums";
+import { GameResult, GameStatus, Paths } from "../../types/enums";
 import { fiveTeamsGroup, fourTeamsGroup, threeTeamsGroup } from "../../helpers/GroupGames";
+import { Link } from "react-router-dom";
 
 const Admin = () => {
 
@@ -263,6 +264,9 @@ const Admin = () => {
     <div>
       <div id="create-team">
         <h1 style={{ textAlign: "center" }}>ugly Admin page</h1>
+        <Link to={Paths.RESULTS}>
+          <button>Back to results</button>
+        </Link>
         <h3 style={{ marginTop: '4rem' }}>1) Add teams to the tournament by selecting Team name, Group, Player1, and Player2</h3>
         <label htmlFor="countries">Countries:</label>
         <select id="countries" onChange={(e) => { setName(e.target.value); setFlagUrl(`flags/${e.target.value}.png`) }}>
