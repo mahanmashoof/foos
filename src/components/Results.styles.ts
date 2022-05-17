@@ -35,14 +35,20 @@ export const FrameInnerGroupStage = styled(s.FrameInner)`
   text-align: center;
   `;
 
-export const TextGroupStage = styled.div`
+interface ActiveGroup {
+  activeButton: boolean;
+}
+
+export const TextGroupStage = styled.div<ActiveGroup>`
   font-size: 40px;
   line-height: 52px;
-  color: #ffffff;
   font-style: italic;
   font-weight: 400;
   font-family: 'Queen of Camelot';
   text-shadow: 2px 4px 4px #0200A4;
+  color: ${(props) => (props.activeButton ? '#EF5DA8' : '#ffffff')};
+  text-decoration: ${(props) => (props.activeButton ? 'underline' : 'none')};
+  cursor: pointer;
 `;
 
 export const FrameMain = styled(s.Frame)`
@@ -72,10 +78,6 @@ export const FrameInnerBigButton = styled(s.FrameInner)`
   flex-direction: column;
   text-align: center;
   `;
-
-interface ActiveGroup {
-  activeButton: boolean;
-}
 
 export const TextBigButton = styled.div<ActiveGroup>`
 font-size: 32px;

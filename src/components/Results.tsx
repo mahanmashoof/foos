@@ -15,6 +15,7 @@ const Results = () => {
     const resultChoices = { results: 'results', table: 'table' }
     const [clickedResult, setClickedResult] = useState(resultChoices.results)
     const stageChoices = { group: 'group', knockOut: 'knock-out' }
+    const [clickedStage, setClickedStage] = useState(stageChoices.knockOut)
 
     const { data: teams } = useGetTeamsAlph()
     const currentGroupTeams = teams.filter(team => team.group === clickedGroup)
@@ -57,18 +58,18 @@ const Results = () => {
             <s.Content>
                 <s.Heading>Schedule & results</s.Heading>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <s.FrameGroupStage onClick={() => console.log('show knock-out stage')}>
+                    <s.FrameGroupStage onClick={() => setClickedStage(stageChoices.knockOut)}>
                         <s.FrameInnerGroupStage>
-                            <s.TextGroupStage>Knockout stage - ends june 3rd</s.TextGroupStage>
+                            <s.TextGroupStage activeButton={clickedStage === stageChoices.knockOut}>Knockout stage - ends june 3rd</s.TextGroupStage>
                         </s.FrameInnerGroupStage>
                     </s.FrameGroupStage>
-                    <s.FrameGroupStage onClick={() => console.log('show group stage')}>
+                    <s.FrameGroupStage onClick={() => setClickedStage(stageChoices.group)}>
                         <s.FrameInnerGroupStage>
-                            <s.TextGroupStage>Group stage - ends may 9th</s.TextGroupStage>
+                            <s.TextGroupStage activeButton={clickedStage === stageChoices.group}>Group stage - ends may 15th</s.TextGroupStage>
                         </s.FrameInnerGroupStage>
                     </s.FrameGroupStage>
                 </div>
-                <s.FrameMain>
+                {clickedStage === stageChoices.group && <s.FrameMain>
                     <s.FrameInnerMain>
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '24px' }}>
                             <s.FrameBigButton onClick={() => setClickedResult(resultChoices.results)}>
@@ -152,8 +153,8 @@ const Results = () => {
                                 </s.FrameInnerResults>
                             </s.FrameResults>}
                     </s.FrameInnerMain>
-                </s.FrameMain>
-                <s.FrameMain>
+                </s.FrameMain>}
+                {clickedStage === stageChoices.knockOut && <s.FrameMain>
                     <s.FrameInnerMain>
                         <s.FrameResults>
                             <s.FrameInnerResults>
@@ -171,7 +172,7 @@ const Results = () => {
                             </s.FrameInnerResults>
                         </s.FrameResults>
                     </s.FrameInnerMain>
-                </s.FrameMain>
+                </s.FrameMain>}
             </s.Content>
             <Footer />
         </s.Main>
