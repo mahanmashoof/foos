@@ -14,6 +14,7 @@ const Results = () => {
     const [clickedGroup, setClickedGroup] = useState('A')
     const resultChoices = { results: 'results', table: 'table' }
     const [clickedResult, setClickedResult] = useState(resultChoices.results)
+    const [clickedStage, setClickedStage] = useState('group')
 
     const { data: teams } = useGetTeamsAlph()
     const currentGroupTeams = teams.filter(team => team.group === clickedGroup)
@@ -55,11 +56,18 @@ const Results = () => {
             <Header />
             <s.Content>
                 <s.Heading>Schedule & results</s.Heading>
-                <s.FrameGroupStage>
-                    <s.FrameInnerGroupStage>
-                        <s.TextGroupStage>Group stage - ends may 9th</s.TextGroupStage>
-                    </s.FrameInnerGroupStage>
-                </s.FrameGroupStage>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <s.FrameGroupStage>
+                        <s.FrameInnerGroupStage>
+                            <s.TextGroupStage>Knockout stage - ends june 3rd</s.TextGroupStage>
+                        </s.FrameInnerGroupStage>
+                    </s.FrameGroupStage>
+                    <s.FrameGroupStage>
+                        <s.FrameInnerGroupStage>
+                            <s.TextGroupStage>Group stage - ends may 9th</s.TextGroupStage>
+                        </s.FrameInnerGroupStage>
+                    </s.FrameGroupStage>
+                </div>
                 <s.FrameMain>
                     <s.FrameInnerMain>
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '24px' }}>
@@ -143,6 +151,25 @@ const Results = () => {
                                     <s.TableExplanation>Countries of Rank 1-2 will advance to knockout stage</s.TableExplanation>
                                 </s.FrameInnerResults>
                             </s.FrameResults>}
+                    </s.FrameInnerMain>
+                </s.FrameMain>
+                <s.FrameMain>
+                    <s.FrameInnerMain>
+                        <s.FrameResults>
+                            <s.FrameInnerResults>
+                                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                    <s.TextResults>qual-round</s.TextResults>
+                                    <s.TextResults>quarter-finals</s.TextResults>
+                                    <s.TextResults>semi-finals</s.TextResults>
+                                    <s.TextResults>play-off for third place</s.TextResults>
+                                    <s.TextResults>semi-finals</s.TextResults>
+                                    <s.TextResults>quarter-finals</s.TextResults>
+                                    <s.TextResults>qual-round</s.TextResults>
+                                </div>
+                                <s.HeadingLine />
+                                knock-out stage here
+                            </s.FrameInnerResults>
+                        </s.FrameResults>
                     </s.FrameInnerMain>
                 </s.FrameMain>
             </s.Content>

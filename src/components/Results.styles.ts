@@ -24,7 +24,7 @@ export const Heading = styled.div`
 
 export const FrameGroupStage = styled(s.Frame)`
 height: 100px;
-width: 580px;
+width: 660px;
 `;
 
 export const FrameInnerGroupStage = styled(s.FrameInner)`
