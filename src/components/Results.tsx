@@ -14,7 +14,7 @@ const Results = () => {
     const [clickedGroup, setClickedGroup] = useState('A')
     const resultChoices = { results: 'results', table: 'table' }
     const [clickedResult, setClickedResult] = useState(resultChoices.results)
-    const [clickedStage, setClickedStage] = useState('group')
+    const stageChoices = { group: 'group', knockOut: 'knock-out' }
 
     const { data: teams } = useGetTeamsAlph()
     const currentGroupTeams = teams.filter(team => team.group === clickedGroup)
@@ -57,12 +57,12 @@ const Results = () => {
             <s.Content>
                 <s.Heading>Schedule & results</s.Heading>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <s.FrameGroupStage>
+                    <s.FrameGroupStage onClick={() => console.log('show knock-out stage')}>
                         <s.FrameInnerGroupStage>
                             <s.TextGroupStage>Knockout stage - ends june 3rd</s.TextGroupStage>
                         </s.FrameInnerGroupStage>
                     </s.FrameGroupStage>
-                    <s.FrameGroupStage>
+                    <s.FrameGroupStage onClick={() => console.log('show group stage')}>
                         <s.FrameInnerGroupStage>
                             <s.TextGroupStage>Group stage - ends may 9th</s.TextGroupStage>
                         </s.FrameInnerGroupStage>
