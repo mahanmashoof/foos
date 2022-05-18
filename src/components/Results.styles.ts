@@ -142,3 +142,15 @@ export const TableExplanation = styled(TextResults)`
   font-weight: 600;
   font-family: 'Roboto', sans-serif;
 `;
+
+export const Playoff3Teams = styled.div`
+display: flex;
+justify-content: space-between;
+margin: 2rem 9.5rem;
+`
+
+export const Playoff4Teams = styled.div`
+display: flex;
+justify-content: space-between;
+margin: 2rem 0;
+`

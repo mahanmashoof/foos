@@ -32,4 +32,9 @@ font-weight: 400;
 font-family: 'Queen of Camelot';
 letter-spacing: -0.02em;
 font-style: italic;
+margin: 0.5rem 0;
+`
+
+export const Occation = styled(Score)`
+color: #EF5DA8;
 `
