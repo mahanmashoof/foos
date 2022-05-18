@@ -7,6 +7,7 @@ import Footer from "./footer/Footer"
 import GamesComp from "./gamesComp/GamesComp";
 import TablesComp from "./gamesComp/TablesComp";
 import Header from "./header/Header"
+import PlayoffGameComp from "./playoffGameComp/PlayoffGameComp";
 import * as s from "./Results.styles";
 
 const Results = () => {
@@ -168,7 +169,7 @@ const Results = () => {
                                     <s.TextResults>qual-round</s.TextResults>
                                 </div>
                                 <s.HeadingLine />
-                                knock-out stage here
+                                <PlayoffGameComp />
                             </s.FrameInnerResults>
                         </s.FrameResults>
                     </s.FrameInnerMain>
