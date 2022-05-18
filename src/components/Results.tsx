@@ -169,7 +169,7 @@ const Results = () => {
                                     <s.TextResults>qual-round</s.TextResults>
                                 </div>
                                 <s.HeadingLine />
-                                <PlayoffGameComp />
+                                <PlayoffGameComp team1FlagUrl='flags/nigeria.png' team2FlagUrl='flags/south korea.png' team1='NIG' team2='KOR' score='TBD' />
                             </s.FrameInnerResults>
                         </s.FrameResults>
                     </s.FrameInnerMain>
