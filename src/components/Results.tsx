@@ -61,7 +61,7 @@ const Results = () => {
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <s.FrameGroupStage onClick={() => setClickedStage(stageChoices.knockOut)}>
                         <s.FrameInnerGroupStage>
-                            <s.TextGroupStage activeButton={clickedStage === stageChoices.knockOut}>Knockout stage - ends june 3rd</s.TextGroupStage>
+                            <s.TextGroupStage activeButton={clickedStage === stageChoices.knockOut}>Knockout stage - ends june 10th</s.TextGroupStage>
                         </s.FrameInnerGroupStage>
                     </s.FrameGroupStage>
                     <s.FrameGroupStage onClick={() => setClickedStage(stageChoices.group)}>
