@@ -163,7 +163,7 @@ const Results = () => {
                                     <s.TextResults>qual-round</s.TextResults>
                                     <s.TextResults>quarter-finals</s.TextResults>
                                     <s.TextResults>semi-finals</s.TextResults>
-                                    <s.TextResults>play-off for third place</s.TextResults>
+                                    <s.TextResults>finals</s.TextResults>
                                     <s.TextResults>semi-finals</s.TextResults>
                                     <s.TextResults>quarter-finals</s.TextResults>
                                     <s.TextResults>qual-round</s.TextResults>
