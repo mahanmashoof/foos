@@ -178,12 +178,12 @@ const Results = () => {
                                     <PlayoffGameComp team1FlagUrl='flags/egypt.png' team2FlagUrl='flags/portugal.png' team1='EGY' team2='POR' score='TBD' occation={""} background={""} />
                                     <PlayoffGameComp team1FlagUrl='flags/flag-tbd.png' team2FlagUrl='flags/flag-tbd.png' team1='TBD' team2='TBD' score='TBD' occation={""} background={""} />
                                     <PlayoffGameComp team1FlagUrl='flags/flag-tbd.png' team2FlagUrl='flags/flag-tbd.png' team1='TBD' team2='TBD' score='TBD' occation={""} background={""} />
-                                    <PlayoffGameComp team1FlagUrl='flags/italy.png' team2FlagUrl='flags/south africa.png' team1='ITA' team2='SA' score='TBD' occation={""} background={""} />
+                                    <PlayoffGameComp team1FlagUrl='flags/italy.png' team2FlagUrl='flags/south africa.png' team1='ITA' team2='SA' score='10-5' occation={""} background={""} />
                                 </s.Playoff4Teams>
                                 <s.Playoff3Teams>
                                     <PlayoffGameComp team1FlagUrl='flags/flag-tbd.png' team2FlagUrl='flags/france.png' team1='TBD' team2='FRA' score='TBD' occation={""} background={""} />
                                     <PlayoffGameComp team1FlagUrl='flags/flag-tbd.png' team2FlagUrl='flags/flag-tbd.png' team1='TBD' team2='TBD' score='TBD' occation={"Final"} background={"black"} />
-                                    <PlayoffGameComp team1FlagUrl='flags/argentina.png' team2FlagUrl='flags/flag-tbd.png' team1='ARG' team2='TBD' score='TBD' occation={""} background={""} />
+                                    <PlayoffGameComp team1FlagUrl='flags/argentina.png' team2FlagUrl='flags/italy.png' team1='ARG' team2='ITA' score='TBD' occation={""} background={""} />
                                 </s.Playoff3Teams>
                             </s.FrameInnerResults>
                         </s.FrameResults>
