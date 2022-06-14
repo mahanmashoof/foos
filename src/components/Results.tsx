@@ -171,18 +171,18 @@ const Results = () => {
                                 <s.HeadingLine />
                                 <s.Playoff3Teams>
                                     <PlayoffGameComp team1FlagUrl='flags/nigeria.png' team2FlagUrl='flags/south korea.png' team1='NIG' team2='KOR' score='6-10' occation={""} background={""} />
-                                    <PlayoffGameComp team1FlagUrl='flags/italy.png' team2FlagUrl='flags/flag-tbd.png' team1='ITA' team2='TBD' score='TBD' occation={"3rd pl"} background={""} />
+                                    <PlayoffGameComp team1FlagUrl='flags/italy.png' team2FlagUrl='flags/south korea.png' team1='ITA' team2='KOR' score='TBD' occation={"3rd pl"} background={""} />
                                     <PlayoffGameComp team1FlagUrl='flags/jamaica.png' team2FlagUrl='flags/cameroon.png' team1='JAM' team2='CAM' score='7-10' occation={""} background={""} />
                                 </s.Playoff3Teams>
                                 <s.Playoff4Teams>
                                     <PlayoffGameComp team1FlagUrl='flags/egypt.png' team2FlagUrl='flags/portugal.png' team1='EGY' team2='POR' score='0-10' occation={""} background={""} />
-                                    <PlayoffGameComp team1FlagUrl='flags/south korea.png' team2FlagUrl='flags/flag-tbd.png' team1='KOR' team2='TBD' score='TBD' occation={""} background={""} />
+                                    <PlayoffGameComp team1FlagUrl='flags/south korea.png' team2FlagUrl='flags/france.png' team1='KOR' team2='FRA' score='6-10' occation={""} background={""} />
                                     <PlayoffGameComp team1FlagUrl='flags/cameroon.png' team2FlagUrl='flags/italy.png' team1='CAM' team2='ITA' score='10-6' occation={""} background={""} />
                                     <PlayoffGameComp team1FlagUrl='flags/italy.png' team2FlagUrl='flags/south africa.png' team1='ITA' team2='SA' score='10-5' occation={""} background={""} />
                                 </s.Playoff4Teams>
                                 <s.Playoff3Teams>
-                                    <PlayoffGameComp team1FlagUrl='flags/portugal.png' team2FlagUrl='flags/france.png' team1='POR' team2='FRA' score='TBD' occation={""} background={""} />
-                                    <PlayoffGameComp team1FlagUrl='flags/cameroon.png' team2FlagUrl='flags/flag-tbd.png' team1='CAM' team2='TBD' score='TBD' occation={"Final"} background={"black"} />
+                                    <PlayoffGameComp team1FlagUrl='flags/portugal.png' team2FlagUrl='flags/france.png' team1='POR' team2='FRA' score='3-10' occation={""} background={""} />
+                                    <PlayoffGameComp team1FlagUrl='flags/cameroon.png' team2FlagUrl='flags/france.png' team1='CAM' team2='FRA' score='TBD' occation={"Final"} background={"black"} />
                                     <PlayoffGameComp team1FlagUrl='flags/argentina.png' team2FlagUrl='flags/italy.png' team1='ARG' team2='ITA' score='5-10' occation={""} background={""} />
                                 </s.Playoff3Teams>
                             </s.FrameInnerResults>
